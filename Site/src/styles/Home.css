@@ -1,0 +1,50 @@
+@import "~antd/dist/antd.css";
+
+.Home {
+  height: 500px;
+  background-image: url("../images/sea.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-style: italic;
+}
+.font {
+  font-size: 50px;
+  margin: 100px;
+  text-shadow: 2px 6px 2px gray;
+}
+.Home2 {
+  height: 500px;
+  background-image: url("../images/sea2.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  font-style: italic;
+}
+.font2 {
+  text-shadow: 2px 6px 2px gray;
+  font-size: 45px;
+  margin-top: 50px;
+}
+.H {
+  width: 99%;
+  height: 430px;
+  padding: 20px;
+  margin: 10px;
+  background-image: url("../images/sea2.jpeg");
+}
+.H1 {
+  margin: 15px;
+  font-size: 40px;
+  font-family: fantasy;
+}
+.P1 {
+  font-size: 20px;
+}
+.A {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  float: right;
+  width: 500px;
+  height: 400px;
+}

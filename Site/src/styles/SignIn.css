@@ -1,0 +1,17 @@
+@import "~antd/dist/antd.css";
+
+.SignIn {
+  min-height: 100vh;
+  padding: 0 50px;
+  margin-top: 128px;
+}
+
+.logo {
+  margin: 0 10px;
+  font-size: 30px;
+}
+.A {
+  display: flex;
+  justify-content: flex-end;
+  width: 400px;
+}
