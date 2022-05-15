@@ -1,16 +1,37 @@
 @import "~antd/dist/antd.css";
 
 .Home {
-  height: 500px;
-  background-image: url("../images/sea.jpeg");
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background-image: url("../images/Hpg.webp");
+  height: 100%;
+  background-size: cover;
   font-style: italic;
 }
 .font {
-  font-size: 50px;
-  margin: 100px;
-  text-shadow: 2px 6px 2px gray;
+  font-size: 30px;
+  text-shadow: 2px 6px 2px black;
+  color: white;
+}
+#fontp {
+  font-style: normal;
+  font-size: 30px;
+  color: white;
+  margin: 10px;
+}
+.font-t {
+  font-style: normal;
+  margin-top: 15%;
+  font-size: 20px;
+  margin-left: 2%;
+  color: white;
+}
+.fontq {
+  font-style: normal;
+  font-size: 15px;
+  color: white;
+  margin: 10px;
+}
+.fontq-q {
+  margin-top: 3%;
 }
 .Home2 {
   height: 500px;
@@ -28,16 +49,18 @@
   width: 99%;
   height: 430px;
   padding: 20px;
-  margin: 10px;
-  background-image: url("../images/sea2.jpeg");
+  background-image: url("../images/13.jpeg");
+  background-size: cover;
 }
 .H1 {
-  margin: 15px;
-  font-size: 40px;
+  margin-top: 70px;
+  font-size: 25px;
   font-family: fantasy;
+  color: white;
 }
 .P1 {
-  font-size: 20px;
+  color: white;
+  font-size: 18px;
 }
 .A {
   margin-top: 10px;
@@ -45,6 +68,19 @@
   margin-bottom: 10px;
   margin-right: 10px;
   float: right;
-  width: 500px;
+  width: 400px;
   height: 400px;
+}
+.card {
+  margin-top: -2%;
+  margin-left: 35%;
+}
+.card2 {
+  background-image: url("../images/sea2.jpeg");
+
+  border-radius: 20%;
+}
+.h-card {
+  text-align: center;
+  text-shadow: 1px 1px 1px gray;
 }
