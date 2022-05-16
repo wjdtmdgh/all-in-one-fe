@@ -1,64 +1,96 @@
-import { Carousel } from "antd";
-import { Divider } from "antd";
-import { Card } from "antd";
 import "../styles/Home.css";
-import A from "../images/Homeimg.webp";
-import {
-  SmileTwoTone,
-  HeartTwoTone,
-  CheckCircleTwoTone,
-} from "@ant-design/icons";
+import A from "../images/Homepic1.png";
+import B from "../images/Homepic2.jpeg";
+import C from "../images/Homepic6.jpeg";
 
-const contentStyle = {
-  textAlign: "center",
-};
+import { Divider } from "antd";
+
+import { Form, Input, Button, Select } from "antd";
+
 function Home() {
+  const clickMe = () => {
+    window.location.href = "/sign-in";
+  };
+  const coding = () => {};
   return (
     <div>
-      <Carousel autoplay delayLength={2}>
-        <div className="Home">
-          <p id="fontp">
-            <b>All-In-One</b>
-          </p>
-          <h1 style={contentStyle} className="font">
-            Study With Me?
-          </h1>
-          <div className="font-t">
-            <p>
-              <b>Algorithms</b>
-              <br />
-              <b>Study</b>
-              <br />
-              <b>Flatform</b>
-            </p>
-          </div>
-          <div className="fontq-q">
-            <p className="fontq">
-              <b>Somebody needs you, Don't give up</b>
-            </p>
-          </div>
-        </div>
-        {/* <div className="Home2">
-          <div className="font2">
-            <h1 style={contentStyle}>
-              A complete platform for <b>Algorithms</b>
-            </h1>
-          </div>
-        </div> */}
-      </Carousel>
-      <Divider></Divider>
-      <img src={A} className="A" />
-      <div className="H">
-        <h1 className="H1">
-          <b>함께 더 많은 목표를 달성</b>
+      <div className="Home">
+        <h1 className="h1">
+          <b>가장 쉬운 스터디 플랫폼</b>
         </h1>
-        <p className="P1">
-          <b>All-in-One</b> <br></br>{" "}
-          <b>원격으로 지식을 공유하고 공동작업 할 수 있는 플랫폼</b>
+        <h1 className="h2">
+          <b>ALL-IN-ONE</b>
+        </h1>
+        <p className="p1">
+          혼자 공부하지말고 같이하자!
+          <br />
+          <b>올인원</b>과 함께라면 신속하고 효율적인 공부를 할 수 있습니다.
         </p>
-        <button>바로 시작하기!</button>
+        <Button
+          type="primary"
+          htmlType="submit"
+          onClick={clickMe}
+          className="member"
+        >
+          회원가입
+        </Button>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p className="p2">
+          이미 가입하셨나요? <span className="login">로그인</span>
+        </p>
       </div>
-      <Divider></Divider>
+      <div className="img">
+        <img src={A} className="img1" />
+        <img src={B} className="img2" />
+        <img src={C} className="img3" />
+      </div>
+      <Divider id="div">ALL-IN-ONE</Divider>
+      <div>
+        <h1 className="h3">
+          <b>
+            언제 어디서나 가장 쉬운{" "}
+            <span className="span">협업 공간, 올인원!</span>
+          </b>
+        </h1>
+        <p className="p3">
+          <b>
+            플랫폼 올인원을 사용하면 소통이 빨라지고 공부 효율성이 높아집니다.
+          </b>
+        </p>
+        <div className="Button">
+          <Button
+            type="primary"
+            htmlType="submit"
+            onClick={coding}
+            className="button"
+          >
+            실시간 코딩
+          </Button>
+          {/* <Button
+            type="primary"
+            htmlType="submit"
+            onClick={board}
+            className="button"
+          >
+            게시판 기능
+          </Button>
+          <Button
+            type="primary"
+            htmlType="submit"
+            onClick={videochat}
+            className="button"
+          >
+            화상회의 기능
+          </Button> */}
+        </div>
+      </div>
     </div>
   );
 }

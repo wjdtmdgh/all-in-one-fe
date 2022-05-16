@@ -1,86 +1,80 @@
 @import "~antd/dist/antd.css";
 
-.Home {
-  background-image: url("../images/Hpg.webp");
-  height: 100%;
-  background-size: cover;
-  font-style: italic;
+.img1 {
+  float: left;
+  width: 25%;
+  margin-top: 5%;
+  margin-left: 20%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
 }
-.font {
-  font-size: 30px;
-  text-shadow: 2px 6px 2px black;
-  color: white;
-}
-#fontp {
-  font-style: normal;
-  font-size: 30px;
-  color: white;
-  margin: 10px;
-}
-.font-t {
-  font-style: normal;
-  margin-top: 15%;
-  font-size: 20px;
-  margin-left: 2%;
-  color: white;
-}
-.fontq {
-  font-style: normal;
-  font-size: 15px;
-  color: white;
-  margin: 10px;
-}
-.fontq-q {
-  margin-top: 3%;
-}
-.Home2 {
-  height: 500px;
-  background-image: url("../images/sea2.jpeg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  font-style: italic;
-}
-.font2 {
-  text-shadow: 2px 6px 2px gray;
-  font-size: 45px;
-  margin-top: 50px;
-}
-.H {
-  width: 99%;
-  height: 430px;
-  padding: 20px;
-  background-image: url("../images/13.jpeg");
-  background-size: cover;
-}
-.H1 {
-  margin-top: 70px;
-  font-size: 25px;
-  font-family: fantasy;
-  color: white;
-}
-.P1 {
-  color: white;
-  font-size: 18px;
-}
-.A {
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  float: right;
-  width: 400px;
-  height: 400px;
-}
-.card {
+.img2 {
+  float: left;
+  width: 25%;
   margin-top: -2%;
-  margin-left: 35%;
+  margin-left: 30%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
 }
-.card2 {
-  background-image: url("../images/sea2.jpeg");
-
-  border-radius: 20%;
+.img3 {
+  float: left;
+  width: 25%;
+  margin-top: -2%;
+  margin-left: 20%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
 }
-.h-card {
+.img4 {
+  width: 25%;
+}
+.Home {
+  float: left;
+  margin-top: 10%;
+  margin-left: 3%;
+}
+.h1 {
+  font-size: 30px;
+}
+.h2 {
+  color: darkblue;
+  font-size: 25px;
+  margin-top: 10px;
+}
+.login {
+  text-decoration: underline;
+}
+#div {
+  padding-top: 100px;
+}
+.member {
+  background-color: darkblue;
+  border-color: darkblue;
+}
+.h3 {
+  font-size: 30px;
+  padding-top: 50px;
   text-align: center;
-  text-shadow: 1px 1px 1px gray;
+}
+.span {
+  font-size: 35px;
+  color: darkblue;
+}
+.p2 {
+  font-size: 15px;
+  color: darkblue;
+}
+.p3 {
+  text-align: center;
+}
+.button {
+  background-color: darkblue;
+  border-color: darkblue;
+  margin: 30px 40px;
+}
+.Button {
+  display: flex;
+  justify-content: center;
 }
