@@ -1,0 +1,158 @@
+@import "~antd/dist/antd.css";
+
+.serviceH {
+  text-align: center;
+  margin-top: 7%;
+  font-size: 45px;
+  padding: 10px;
+}
+.serviceA {
+  text-decoration: underline;
+  color: darkblue;
+}
+.simg1 {
+  margin-top: -45px;
+  width: 100%;
+}
+.simg2 {
+  width: 47%;
+  margin-top: -62%;
+  margin-left: 27%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: black;
+}
+.serviceD {
+  background-color: white;
+}
+.serviceh {
+  color: darkblue;
+  font-size: 20px;
+  margin-left: 2%;
+  margin-top: 2%;
+  font-variant: inherit;
+}
+.serviceH2 {
+  margin-top: 5%;
+}
+.serviceh2 {
+  font-size: 40px;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-left: 7%;
+  font-variant: inherit;
+}
+.span2 {
+  color: darkblue;
+}
+.servicep {
+  font-size: 30px;
+  margin-left: 55%;
+}
+.services {
+  color: darkblue;
+}
+.carousel {
+  float: left;
+  margin-left: 5%;
+  width: 47%;
+  height: 300px;
+  color: aliceblue;
+  text-align: center;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.s {
+  margin-right: 4%;
+  color: darkblue;
+  font-size: 40px;
+}
+.left {
+  padding: 10px;
+  margin-left: 54%;
+  margin-bottom: 2%;
+  font-size: 20px;
+}
+.right {
+  margin-left: 66%;
+  font-size: 20px;
+  margin-bottom: 2%;
+}
+.div1 {
+  margin-top: 6%;
+}
+.gaesi {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.bbutton {
+  background-color: darkblue;
+  border-color: darkblue;
+  margin: 5px 50px;
+}
+.bbbutton {
+  background-color: darkcyan;
+  border-color: darkcyan;
+  margin: 5px 50px;
+}
+.so {
+  color: darkblue;
+}
+.gi {
+  color: darkcyan;
+}
+.Cimg {
+  margin-left: 7%;
+  width: 30%;
+  height: 50%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.Cimgh {
+  margin-top: 2%;
+  color: darkblue;
+  margin-left: 8%;
+}
+.Cimg2 {
+  margin-left: 26%;
+  width: 30%;
+  height: 50%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.Cimgh2 {
+  margin-top: 2%;
+  color: darkblue;
+  margin-left: 27%;
+}
+.Cimg3 {
+  margin-left: 45%;
+  width: 30%;
+  height: 50%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.Cimgh3 {
+  margin-top: 2%;
+  color: darkblue;
+  margin-left: 46%;
+}
+.Cimg4 {
+  margin-left: 65%;
+  width: 30%;
+  height: 50%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.Cimgh4 {
+  margin-top: 2%;
+  color: darkblue;
+  margin-left: 66%;
+}

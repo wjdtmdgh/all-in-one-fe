@@ -2,16 +2,36 @@ import "../styles/Home.css";
 import A from "../images/Homepic1.png";
 import B from "../images/Homepic2.jpeg";
 import C from "../images/Homepic6.jpeg";
-
+import E from "../images/Homepic12.jpeg";
+import Coding from "./Coding";
+import Board from "./Board";
+import VideoChat from "./VideoChat";
+import { useState } from "react";
 import { Divider } from "antd";
-
+import { Footer } from "antd/es/layout/layout";
 import { Form, Input, Button, Select } from "antd";
 
 function Home() {
   const clickMe = () => {
     window.location.href = "/sign-in";
   };
-  const coding = () => {};
+  const [content, setContent] = useState("coding");
+
+  const coding = () => {
+    setContent("coding");
+  };
+  const board = () => {
+    setContent("board");
+  };
+  const videochat = () => {
+    setContent("videochat");
+  };
+  const selectComponent = {
+    coding: <Coding />,
+    board: <Board />,
+    videochat: <VideoChat />,
+  };
+
   return (
     <div>
       <div className="Home">
@@ -73,7 +93,7 @@ function Home() {
           >
             실시간 코딩
           </Button>
-          {/* <Button
+          <Button
             type="primary"
             htmlType="submit"
             onClick={board}
@@ -88,9 +108,18 @@ function Home() {
             className="button"
           >
             화상회의 기능
-          </Button> */}
+          </Button>
         </div>
+        {content && selectComponent[content]}
       </div>
+      <Divider id="div">ALL-IN-ONE</Divider>
+      <Footer
+        style={{
+          textAlign: "center",
+        }}
+      >
+        AlgorStudy Platform ©2022 Created by Seungho.J
+      </Footer>
     </div>
   );
 }
