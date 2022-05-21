@@ -105,43 +105,110 @@
   color: darkcyan;
 }
 .Cimg {
+  float: left;
   margin-left: 7%;
   width: 30%;
-  height: 50%;
+  height: 330px;
   border: 5px solid #5d6f5e;
   padding: 7px;
   background: #fefdcc;
+  margin-top: 3%;
+  margin-bottom: 6%;
 }
 .Cimgh {
   margin-top: 2%;
   color: darkblue;
   margin-left: 8%;
 }
+.Cicon {
+  margin-top: 5%;
+  margin-bottom: 2%;
+  margin-left: 25%;
+  font-size: 40px;
+}
+.Ccicon {
+  margin-left: 5%;
+  font-size: 50px;
+}
+.Cimgp {
+  color: darkblue;
+}
+.CimgH {
+  text-align: center;
+  margin-left: 35%;
+  font-size: 27px;
+}
+.Cimgh2 {
+  text-align: center;
+}
 .Cimg2 {
+  float: left;
   margin-left: 26%;
   width: 30%;
-  height: 50%;
   border: 5px solid #5d6f5e;
   padding: 7px;
   background: #fefdcc;
+  margin-top: 3%;
+  margin-bottom: 6%;
+  height: 330px;
 }
 .Cimgh2 {
   margin-top: 2%;
   color: darkblue;
   margin-left: 27%;
 }
+.Cimg2icon {
+  font-size: 45px;
+  margin-top: 3%;
+  margin-left: 30%;
+}
+.Cimg2icon2 {
+  font-size: 45px;
+  margin-left: 8%;
+}
+
 .Cimg3 {
-  margin-left: 45%;
+  margin-top: -19%;
+  margin-left: 47%;
   width: 30%;
   height: 50%;
   border: 5px solid #5d6f5e;
   padding: 7px;
   background: #fefdcc;
+  margin-bottom: 6%;
+  height: 330px;
+}
+.up {
+  color: darkcyan;
+  font-size: 25px;
+}
+.ic {
+  margin-left: 11%;
+  font-size: 40px;
+}
+.Cimghh {
+  margin-top: 2%;
+  text-align: center;
+  font-size: 25px;
+}
+.Cimghb {
+  color: palevioletred;
+  font-size: 28px;
 }
 .Cimgh3 {
   margin-top: 2%;
   color: darkblue;
   margin-left: 46%;
+}
+.Cimgdh3 {
+  font-size: 17px;
+  margin-left: 8%;
+  margin-top: 10%;
+}
+.Cimgdh4 {
+  font-size: 17px;
+  margin-left: 15%;
+  margin-top: 10%;
 }
 .Cimg4 {
   margin-left: 65%;
@@ -150,6 +217,13 @@
   border: 5px solid #5d6f5e;
   padding: 7px;
   background: #fefdcc;
+  margin-top: -21%;
+  margin-bottom: 6%;
+  height: 330px;
+}
+.one {
+  font-size: 30px;
+  color: darkcyan;
 }
 .Cimgh4 {
   margin-top: 2%;

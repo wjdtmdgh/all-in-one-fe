@@ -1,15 +1,40 @@
 import React from "react";
-import Cimg from "../images/Homepic5.jpeg";
-function comment() {
+import Cimg from "../images/Servipic10.png";
+import { HeartTwoTone } from "@ant-design/icons";
+function Like() {
   return (
     <div>
-      <h1 className="Cimgh2">
+      {/* <h1 className="Cimgh2">
         <b>댓글을 남겨 상대방하고 소통하세요!</b>
-      </h1>
+      </h1> */}
       <div className="Cimgd2">
         <img src={Cimg} className="Cimg2"></img>
+        <div className="Cimgd2">
+          <HeartTwoTone
+            twoToneColor="#eb2f96"
+            className="Cimg2icon"
+          ></HeartTwoTone>
+          <HeartTwoTone
+            twoToneColor="#eb2f96"
+            className="Cimg2icon2"
+          ></HeartTwoTone>
+          <h1 className="Cimghh">
+            <b>[ </b>
+            <b className="Cimghb">좋아요 </b>
+            <b>는 관심이고 사랑입니다 ]</b>
+          </h1>
+
+          <HeartTwoTone
+            twoToneColor="#eb2f96"
+            className="Cimg2icon"
+          ></HeartTwoTone>
+          <HeartTwoTone
+            twoToneColor="#eb2f96"
+            className="Cimg2icon2"
+          ></HeartTwoTone>
+        </div>
       </div>
     </div>
   );
 }
-export default comment;
+export default Like;

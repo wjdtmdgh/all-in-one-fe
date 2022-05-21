@@ -15,8 +15,16 @@ import Record from "../components/Record";
 import C from "../images/Servicepic3.jpeg";
 import { Carousel } from "antd";
 import { Divider } from "antd";
+import styled from "styled-components";
 function Service() {
   const [gaesipan, setGaesipan] = useState("comment");
+  const [isHover, setIshover] = useState(0);
+  function onMouseIn() {
+    setIshover(1);
+  }
+  function onMouseOut() {
+    setIshover(0);
+  }
   const comment = () => {
     setGaesipan("comment");
   };
@@ -29,7 +37,6 @@ function Service() {
   const record = () => {
     setGaesipan("record");
   };
-
   const selectComponent = {
     comment: <Comment />,
     like: <Like />,
@@ -134,6 +141,13 @@ function Service() {
           </div>
         </div>
         {gaesipan && selectComponent[gaesipan]}
+      </div>
+      <Divider>ALL-IN-ONE</Divider>
+      <div>
+        <a onClick={onMouseIn}>
+          <SolutionOutlined></SolutionOutlined>
+          {isHover ? <p>자세히 알아보기</p> : ""}
+        </a>
       </div>
     </div>
   );
