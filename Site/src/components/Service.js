@@ -7,7 +7,7 @@ import { DoubleRightOutlined } from "@ant-design/icons";
 import { CheckOutlined } from "@ant-design/icons";
 import { SolutionOutlined } from "@ant-design/icons";
 import { EditOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Button, Popover } from "antd";
 import Comment from "./Comment";
 import Like from "../components/Like";
 import Code from "../components/Code";
@@ -15,16 +15,10 @@ import Record from "../components/Record";
 import C from "../images/Servicepic3.jpeg";
 import { Carousel } from "antd";
 import { Divider } from "antd";
-import styled from "styled-components";
+import { Col, Image, Row } from "antd";
+import D from "../images/Videochatpic1.jpeg";
 function Service() {
   const [gaesipan, setGaesipan] = useState("comment");
-  const [isHover, setIshover] = useState(0);
-  function onMouseIn() {
-    setIshover(1);
-  }
-  function onMouseOut() {
-    setIshover(0);
-  }
   const comment = () => {
     setGaesipan("comment");
   };
@@ -143,12 +137,12 @@ function Service() {
         {gaesipan && selectComponent[gaesipan]}
       </div>
       <Divider>ALL-IN-ONE</Divider>
-      <div>
-        <a onClick={onMouseIn}>
-          <SolutionOutlined></SolutionOutlined>
-          {isHover ? <p>자세히 알아보기</p> : ""}
-        </a>
+      {/* <div align="center">
+        <Popover content={() => <p>자세히 알아보기</p>} title="Title">
+          <SolutionOutlined className="dfa"></SolutionOutlined>
+        </Popover>
       </div>
+      <img src={D}></img> */}
     </div>
   );
 }

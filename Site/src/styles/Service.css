@@ -230,3 +230,21 @@
   color: darkblue;
   margin-left: 66%;
 }
+.ima {
+  margin-top: 6%;
+  width: 70%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.imgg {
+  margin-top: 6%;
+  margin-left: 30%;
+  width: 70%;
+  border: 5px solid #5d6f5e;
+  padding: 7px;
+  background: #fefdcc;
+}
+.col {
+  margin-top: 10%;
+}
