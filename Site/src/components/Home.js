@@ -118,7 +118,7 @@ function Home() {
           textAlign: "center",
         }}
       >
-        AlgorStudy Platform ©2022 Created by Seungho.J
+        AlgorithmStudy Platform ©2022 Created by Seungho.J
       </Footer>
     </div>
   );

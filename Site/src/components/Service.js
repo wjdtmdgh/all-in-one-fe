@@ -6,6 +6,7 @@ import { DingtalkSquareFilled } from "@ant-design/icons";
 import { DoubleRightOutlined } from "@ant-design/icons";
 import { CheckOutlined } from "@ant-design/icons";
 import { SolutionOutlined } from "@ant-design/icons";
+import { HeartTwoTone } from "@ant-design/icons";
 import { EditOutlined } from "@ant-design/icons";
 import { Button, Popover } from "antd";
 import Comment from "./Comment";
@@ -13,10 +14,13 @@ import Like from "../components/Like";
 import Code from "../components/Code";
 import Record from "../components/Record";
 import C from "../images/Servicepic3.jpeg";
+import D from "../images/Serviceicon1.png";
+import E from "../images/Serviceicon2.png";
+import F from "../images/Serviceicon3.png";
+import G from "../images/Serviceicon4.png";
 import { Carousel } from "antd";
 import { Divider } from "antd";
-import { Col, Image, Row } from "antd";
-import D from "../images/Videochatpic1.jpeg";
+
 function Service() {
   const [gaesipan, setGaesipan] = useState("comment");
   const comment = () => {
@@ -54,6 +58,48 @@ function Service() {
         <div>
           <img src={A} className="simg1"></img>
           <img src={B} className="simg2"></img>
+          <Popover
+            content={() => (
+              <p>
+                채팅 기능으로 다른 사람들과 바로바로 대화를 주고 받을 수
+                있습니다
+              </p>
+            )}
+            title="Chatting"
+          >
+            <img src={D} className="simg3"></img>
+          </Popover>
+          <Popover
+            content={() => (
+              <p>
+                녹화 기능으로 진행했던 회의 내용을 기록하고 공유할 수 있습니다
+              </p>
+            )}
+            title="Recording"
+          >
+            <img src={E} className="simg4"></img>
+          </Popover>
+          <Popover
+            content={() => (
+              <p>
+                숨기기 나타내기 기능으로 현재 화상 화면을 숨기고 다시 보여줄 수
+                있습니다
+              </p>
+            )}
+            title="Hiding"
+          >
+            <img src={F} className="simg5"></img>
+          </Popover>
+          <Popover
+            content={() => (
+              <p>
+                음성 기능으로 화면 뿐 아니라 음성도 끄고 키고 할 수 있습니다
+              </p>
+            )}
+            title="Voicing"
+          >
+            <img src={G} className="simg6"></img>
+          </Popover>
         </div>
       </div>
       <Divider>ALL-IN-ONE</Divider>
@@ -137,12 +183,6 @@ function Service() {
         {gaesipan && selectComponent[gaesipan]}
       </div>
       <Divider>ALL-IN-ONE</Divider>
-      {/* <div align="center">
-        <Popover content={() => <p>자세히 알아보기</p>} title="Title">
-          <SolutionOutlined className="dfa"></SolutionOutlined>
-        </Popover>
-      </div>
-      <img src={D}></img> */}
     </div>
   );
 }
