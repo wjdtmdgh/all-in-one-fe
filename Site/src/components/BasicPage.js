@@ -17,7 +17,7 @@ const BasicPage = () => {
               <Link to="/service">Service</Link>
             </Menu.Item>
             <Menu.Item>
-              <Link to="/video">Video Chat</Link>
+              <Link to="/video">Code With Me</Link>
             </Menu.Item>
             <Menu.Item>
               <Link to="/price">Price</Link>

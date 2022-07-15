@@ -5,6 +5,8 @@ import SignIn from "../components/SignIn";
 import Home from "../components/Home";
 import Service from "../components/Service";
 import { Layout } from "antd";
+import CodeWithMe from "../components/CodeWithMe";
+import InCodeWithMe from "../components/InCodeWithMe";
 function Allcontrol() {
   return (
     <Layout>
@@ -13,6 +15,8 @@ function Allcontrol() {
         <Route path="/" element={<Home />} />
         <Route path="/service" element={<Service />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="video" element={<CodeWithMe />} />
+        <Route path="/video/incodewithme" element={<InCodeWithMe />} />
       </Routes>
     </Layout>
   );
