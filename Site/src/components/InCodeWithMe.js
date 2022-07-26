@@ -1,72 +1,83 @@
 import React, {useState} from "react";
 import "../styles/InCodeWithMe.css";
-import MonacoEditor from 'react-monaco-editor';
-import {Col, Row, Select} from "antd";
-import {Option} from "antd/es/mentions";
+import {Checkbox, Col, Row, Select} from "antd";
 import JoinMeeting from "./JoinMeeting";
-import Code from "./Code";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/ext-language_tools";
+
+import {Option} from "antd/es/mentions";
 
 function InCodeWithMe() {
-  const [code, setCode] = useState("")
-  const [fontSizeList, setFontSizeList] = useState([10, 15, 20, 25])
-  const [fontSize, setFontSize] = useState(10)
-  const [language, setLanguage] = useState("javascript")
+  const [code, setCode] = useState('');
+  const [language, setLanguage] = useState('javascript');
+  const [fontSize, setFontSize] = useState(20);
+  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
 
-  const options = {
-    copyWithSyntaxHighlighting: true,
-    selectOnLineNumbers: true,
-    autoIndent: "full",
-    bracketPairColorization: true,
-    occurrencesHighlight: true,
-    language: language,
-    fontSize: fontSize
-  };
 
-  const editorDidMount = (editor, monaco) => {
-    console.log('editorDidMount', editor)
-    editor.focus();
+  // TODO: FontSize 변경 기능 추가
+  const onFontSizeChange = (newFontSize) => {
+    setFontSize(newFontSize);
   }
 
-  const onChange = (newValue, e) => {
-    console.log('onChange', newValue, e)
+  const onCodeChange = (newCode) => {
+    setCode(newCode);
   }
 
-  const onFontSizeChange = (newValue, e) => {
-    console.log(newValue);
-    setFontSize(newValue)
+  const onLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
   }
 
-  const onLanguageChange = (newValue, e) => {
-    console.log(newValue);
-    setFontSize(newValue)
+  const onHighlightActiveLineChange = (e) => {
+    setHighlightActiveLineChange(e.target.checked);
   }
 
-  return <div className="icw">
-    <Select defaultValue="10" style={{width: 120}} onChange={onFontSizeChange}>
-      <Option value="10">10</Option>
-      <Option value="15">15</Option>
-      <Option value="20">20</Option>
-      <Option value="25">25</Option>
-    </Select>
-    <Select defaultValue="javascript" style={{width: 120}} onChange={onLanguageChange}>
-      <Option value="javascript">javascript</Option>
-      <Option value="java">java</Option>
-    </Select>
-    <Row>
-      <Col span={7}>
-        <MonacoEditor
-          language={language}
-          theme="vs-dark"
-          value={code}
-          options={options}
-          onChange={onChange}
-          editorDidMount={editorDidMount}
-        />
-      </Col>
-      <Col span={1}>
-        <JoinMeeting/>
-      </Col>
-    </Row>
-  </div>
+  return <Row>
+    <Col span={1}>
+      <Select defaultValue={language} style={{width: 120}} onChange={onLanguageChange}>
+        <Option value="javascript">javascript</Option>
+        <Option value="java">java</Option>
+        <Option value="python">python</Option>
+        <Option value="xml">xml</Option>
+        <Option value="ruby">ruby</Option>
+        <Option value="sass">sass</Option>
+        <Option value="markdown">markdown</Option>
+        <Option value="mysql">mysql</Option>
+        <Option value="json">json</Option>
+        <Option value="html">html</Option>
+        <Option value="handlebars">handlebars</Option>
+        <Option value="golang">golang</Option>
+        <Option value="csharp">csharp</Option>
+        <Option value="coffee">coffee</Option>
+        <Option value="css">css</Option>
+      </Select>
+      <Checkbox onChange={onHighlightActiveLineChange}>Checkbox</Checkbox>
+    </Col>
+    <Col span={7}>
+      <AceEditor
+        placeholder="Placeholder Text"
+        mode={language}
+        theme="monokai"
+        name="blah2"
+        onChange={onCodeChange}
+        fontSize={fontSize}
+        showPrintMargin={true}
+        showGutter={true}
+        highlightActiveLine={highlightActiveLineChange}
+        value={code}
+        setOptions={{
+          enableBasicAutocompletion: false,
+          enableLiveAutocompletion: false,
+          enableSnippets: false,
+          showLineNumbers: true,
+          tabSize: 2,
+        }}/>
+    </Col>
+    <Col span={1}>
+      <JoinMeeting/>
+    </Col>
+  </Row>
 }
 export default InCodeWithMe;

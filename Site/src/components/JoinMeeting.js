@@ -1,5 +1,6 @@
-export default function JoinMeeting(){
+import {Button} from "antd";
 
+export default function JoinMeeting(){
   const constraints = window.constraints = {
     audio: false,
     video: true
@@ -42,8 +43,8 @@ export default function JoinMeeting(){
     }
   }
 
-  return <div id="container">
+  return <div>
     <video autoPlay playsInline></video>
-    <button onClick={init}>Open camera</button>
+    <Button onClick={init}>Open camera</Button>
   </div>
 }
