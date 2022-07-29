@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "../styles/InCodeWithMe.css";
 import { Checkbox, Col, Row, Select } from "antd";
 import JoinMeeting from "./JoinMeeting";
 import AceEditor from "react-ace";
+import "ace-builds";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
+
 
 import { Option } from "antd/es/mentions";
 
@@ -14,8 +16,8 @@ function InCodeWithMe() {
   const [language, setLanguage] = useState("javascript");
   const [fontSize, setFontSize] = useState(15);
   const [readOnly, setReadOnly] = useState(false);
-  const [highlightActiveLineChange, setHighlightActiveLineChange] =
-    useState(true);
+  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
+
   const onFontSizeChange = (newFontSize) => {
     console.log(newFontSize);
     setFontSize(newFontSize);
@@ -33,9 +35,11 @@ function InCodeWithMe() {
     console.log(setHighlightActiveLineChange);
     setHighlightActiveLineChange(e.target.checked);
   };
+
   const onReadOnly = (e) => {
     setReadOnly(e.target.checked);
   };
+
   return (
     <div className="icw">
       <Row>
@@ -74,10 +78,10 @@ function InCodeWithMe() {
               defaultValue={fontSize}
               style={{ width: 120 }}
             >
-              <Option value="10">10</Option>
-              <Option value="15">15</Option>
-              <Option value="20">20</Option>
-              <Option value="25">25</Option>
+              <Option value={10}>10</Option>
+              <Option value={15}>15</Option>
+              <Option value={20}>20</Option>
+              <Option value={25}>25</Option>
             </Select>
           </div>
           <div>
@@ -88,7 +92,7 @@ function InCodeWithMe() {
           <AceEditor
             placeholder="Placeholder Text"
             mode={language}
-            theme="GitHub"
+            theme="Kuroir"
             name="blah2"
             onChange={onCodeChange}
             fontSize={fontSize}

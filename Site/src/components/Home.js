@@ -12,9 +12,14 @@ import { Footer } from "antd/es/layout/layout";
 import { Form, Input, Button, Select } from "antd";
 
 function Home() {
-  const clickMe = () => {
+  const onRegisterButtonClick = () => {
+    window.location.href = "/sign-up";
+  }
+
+  const onLoginButtonClick = () => {
     window.location.href = "/sign-in";
-  };
+  }
+
   const [content, setContent] = useState("coding");
 
   const coding = () => {
@@ -49,7 +54,7 @@ function Home() {
         <Button
           type="primary"
           htmlType="submit"
-          onClick={clickMe}
+          onClick={onRegisterButtonClick}
           className="member"
         >
           회원가입
@@ -63,7 +68,7 @@ function Home() {
         <br />
         <br />
         <p className="p2">
-          이미 가입하셨나요? <span className="login">로그인</span>
+          이미 가입하셨나요? <span className="login" onClick={onLoginButtonClick}>로그인</span>
         </p>
       </div>
       <div className="img">

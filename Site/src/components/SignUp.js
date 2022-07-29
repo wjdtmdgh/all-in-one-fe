@@ -4,29 +4,40 @@ import { GithubOutlined } from "@ant-design/icons";
 import { TwitterOutlined } from "@ant-design/icons";
 import { FacebookOutlined } from "@ant-design/icons";
 
-import "../styles/SignIn.css";
+import "../styles/SignUp.css";
 import webClient from "../utils/WebClient";
-function SignIn() {
+
+function SignUp() {
   const onFinish = (values) => {
-    console.log('패스워드 일치: ', values)
-    const data = {
-      email: values.email,
-      password: values.password
+    if(values.password === values.confirm_password) {
+      console.log('패스워드 일치: ', values)
+      const data = {
+        email: values.email,
+        password: values.password
+      }
+      webClient.post(`http://localhost:8080/members`, data)
+      // TODO
+      // 1. 서버에 아이디 패스워드 전달
+      // 2. 성공시 로그인 처리 후 화면 이동(어디로 이동할지는 생각해보기)
+      // 3. 실패시 에러메시지 띄우기
     }
-    webClient.post(`http://localhost:8080/members/login`, data)
+    else{
+      console.log('패스워드 불일치: ', values);
+      message.error('패스워드가 일치하지 않습니다.');
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 
-  const onRegisterButtonClick = () => {
-    window.location.href = "/sign-up";
+  const onLoginButtonClick = () => {
+    window.location.href = "/sign-in";
   }
 
   return (
     <Form
-      className="SignIn"
+      className="SignUp"
       name="basic"
       labelCol={{ span: 10 }}
       wrapperCol={{ span: 7 }}
@@ -38,7 +49,7 @@ function SignIn() {
       <Form.Item
         label="이메일"
         name="email"
-        rules={[{ required: true, message: "이메일을 입력해 주세요" }]}
+        rules={[{ required: true, type: 'email', message: "이메일을 입력해 주세요" }]}
       >
         <Input />
       </Form.Item>
@@ -47,6 +58,14 @@ function SignIn() {
         label="비밀번호"
         name="password"
         rules={[{ required: true, message: "비밀번호를 입력해 주세요" }]}
+      >
+        <Input.Password />
+      </Form.Item>
+
+      <Form.Item
+        label="비밀번호 확인"
+        name="confirm_password"
+        rules={[{ required: true, message: "비밀번호 확인을 입력해 주세요" }]}
       >
         <Input.Password />
       </Form.Item>
@@ -62,10 +81,10 @@ function SignIn() {
       <Form.Item wrapperCol={{ offset: 12, span: 18 }}>
         <Space style={{marginBottom: 10}}>
           <Button type="primary" htmlType="submit">
-            로그인
-          </Button>
-          <Button type="primary" onClick={onRegisterButtonClick}>
             회원가입
+          </Button>
+          <Button type="primary" onClick={onLoginButtonClick}>
+            로그인
           </Button>
         </Space>
       </Form.Item>
@@ -81,4 +100,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUp;
