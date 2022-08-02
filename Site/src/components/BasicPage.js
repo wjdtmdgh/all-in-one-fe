@@ -13,14 +13,11 @@ const BasicPage = () => {
             <Menu.Item>
               <Link to="/">Home</Link>
             </Menu.Item>
-            <Menu.Item>
+            {/* <Menu.Item>
               <Link to="/service">Service</Link>
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item>
               <Link to="/video">Code With Me</Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link to="/price">Price</Link>
             </Menu.Item>
             <Menu.Item>
               <Link to="/sign-in">Login</Link>

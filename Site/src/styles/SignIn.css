@@ -16,3 +16,14 @@
   justify-content: flex-end;
   width: 400px;
 }
+.SignIndiv {
+  border-radius: 35px;
+  width: 50%;
+  margin: auto;
+  padding: 3%;
+  border: 2px solid #d9d6d6;
+}
+.SignInh {
+  text-align: center;
+  padding: 3%;
+}

@@ -35,6 +35,9 @@
   margin-top: 10%;
   margin-left: 3%;
 }
+.q {
+  background-color: white;
+}
 .h1 {
   font-size: 30px;
 }
@@ -43,9 +46,7 @@
   font-size: 25px;
   margin-top: 10px;
 }
-.login {
-  text-decoration: underline;
-}
+
 #div {
   padding-top: 100px;
 }
@@ -123,4 +124,8 @@
   border: 5px solid #5d6f5e;
   padding: 7px;
   background: #fefdcc;
+}
+.login {
+  border: 0;
+  outline: 0;
 }
