@@ -6,14 +6,27 @@ import { FacebookOutlined } from "@ant-design/icons";
 import { DingtalkSquareFilled } from "@ant-design/icons";
 import "../styles/SignIn.css";
 import webClient from "../utils/WebClient";
+import {useNavigate} from "react-router-dom";
 function SignIn() {
+  const navigate = useNavigate()
   const onFinish = (values) => {
-    console.log("패스워드 일치: ", values);
     const data = {
       email: values.email,
       password: values.password,
     };
-    webClient.post(`http://localhost:8080/members/login`, data);
+    webClient.post(`http://localhost:8080/members/login`, data)
+      .then(res => {
+        console.log(res)
+        return res.data
+      })
+      .then(data => {
+        localStorage.setItem("token", data.token)
+        message.success("로그인 성공")
+        navigate("/")
+      })
+      .catch((err) => {
+        message.error(`로그인 실패. ${err.response.data}`)
+      })
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -21,7 +34,7 @@ function SignIn() {
   };
 
   const onRegisterButtonClick = () => {
-    window.location.href = "/sign-up";
+    navigate("/sign-up")
   };
 
   return (

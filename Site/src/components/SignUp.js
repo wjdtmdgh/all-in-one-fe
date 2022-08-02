@@ -6,32 +6,43 @@ import { FacebookOutlined } from "@ant-design/icons";
 import { DingtalkSquareFilled } from "@ant-design/icons";
 import "../styles/SignUp.css";
 import webClient from "../utils/WebClient";
+import {useNavigate} from "react-router-dom";
 
 function SignUp() {
+  const navigate = useNavigate()
   const onFinish = (values) => {
     if (values.password === values.confirm_password) {
-      console.log("패스워드 일치: ", values);
+      console.log("패스워드 일치: ", values)
       const data = {
         email: values.email,
         password: values.password,
       };
-      webClient.post(`http://localhost:8080/members`, data);
+      webClient.post(`http://localhost:8080/members`, data)
+        .then(res => res.data)
+        .then(data => {
+          localStorage.setItem("token", data.token)
+          message.success("회원가입 성공")
+          navigate("/")
+        })
+        .catch((err) => {
+          message.error("회원가입 실패. 이미 가입된 이메일입니다.")
+        })
       // TODO
       // 1. 서버에 아이디 패스워드 전달
       // 2. 성공시 로그인 처리 후 화면 이동(어디로 이동할지는 생각해보기)
       // 3. 실패시 에러메시지 띄우기
     } else {
-      console.log("패스워드 불일치: ", values);
-      message.error("패스워드가 일치하지 않습니다.");
+      console.log("패스워드 불일치: ", values)
+      message.error("패스워드가 일치하지 않습니다.")
     }
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+    console.log("Failed:", errorInfo)
   };
 
   const onLoginButtonClick = () => {
-    window.location.href = "/sign-in";
+    navigate("/sign-in")
   };
 
   return (

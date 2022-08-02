@@ -28,13 +28,15 @@ import E from "../images/Serviceicon2.png";
 import F from "../images/Serviceicon3.png";
 import G from "../images/Serviceicon4.png";
 import { Carousel } from "antd";
+import {useNavigate} from "react-router-dom";
 function Home() {
+  const navigate = useNavigate()
   const onRegisterButtonClick = () => {
-    window.location.href = "/sign-up";
+    navigate("/sign-up")
   };
 
   const onLoginButtonClick = () => {
-    window.location.href = "/sign-in";
+    navigate("/sign-in")
   };
   const [gaesipan, setGaesipan] = useState("comment");
   const comment = () => {

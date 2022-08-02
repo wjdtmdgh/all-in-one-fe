@@ -7,6 +7,7 @@ import { Button } from "antd";
 import { Divider } from "antd";
 import { Footer } from "antd/es/layout/layout";
 import { Modal } from "antd";
+import {useNavigate} from "react-router-dom";
 
 const h2 = {
   color: "darkblue",
@@ -16,6 +17,7 @@ const h1 = {
   fontSize: "20px",
 };
 function CodeWithMe() {
+  const navigate = useNavigate()
   var generateRandom = function (min, max) {
     var ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
     return ranNum;
@@ -27,7 +29,7 @@ function CodeWithMe() {
   };
 
   const handleOk = () => {
-    window.location.href = "/video/inCodeWithMe";
+    navigate("/video/inCodeWithMe")
   };
 
   const handleCancel = () => {

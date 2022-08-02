@@ -1,6 +1,7 @@
 import "../styles/App.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
+import {getToken} from "../utils/TokenUtils";
 const { Header, Content, Footer } = Layout;
 
 const BasicPage = () => {
@@ -19,9 +20,15 @@ const BasicPage = () => {
             <Menu.Item>
               <Link to="/video">Code With Me</Link>
             </Menu.Item>
-            <Menu.Item>
-              <Link to="/sign-in">Login</Link>
-            </Menu.Item>
+            {
+              getToken() ?
+              <Menu.Item>
+                <Link to="/sign-in">Logout</Link>
+              </Menu.Item> :
+              <Menu.Item>
+                <Link to="/sign-in">Login</Link>
+              </Menu.Item>
+            }
           </Menu>
         </Header>
       </Layout>
