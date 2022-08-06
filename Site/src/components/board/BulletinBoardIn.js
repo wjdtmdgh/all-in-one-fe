@@ -1,6 +1,6 @@
 import moment from "moment";
 import React, { useState } from "react";
-import "../styles/BulletinBoardIn.css";
+import "../../styles/BulletinBoardIn.css";
 import { Rate } from "antd";
 import {
   Card,
@@ -14,8 +14,6 @@ import {
   List,
 } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { EyeFilled } from "@ant-design/icons";
-import { MessageFilled } from "@ant-design/icons";
 import { HeartFilled } from "@ant-design/icons";
 import { Image } from "antd";
 import { Divider } from "antd";

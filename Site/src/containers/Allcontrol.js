@@ -1,15 +1,15 @@
 import React from "react";
 import BasicPage from "../components/BasicPage";
 import { Route, Routes } from "react-router-dom";
-import SignIn from "../components/SignIn";
+import SignIn from "../components/auth/SignIn";
 import Home from "../components/Home";
 import Service from "../components/Service";
 import { Layout } from "antd";
 import CodeWithMe from "../components/CodeWithMe";
 import InCodeWithMe from "../components/InCodeWithMe";
-import SignUp from "../components/SignUp";
-import BulletinBoard from "../components/BulletinBoard";
-import BulletinBoardIn from "../components/BulletinBoardIn";
+import SignUp from "../components/auth/SignUp";
+import BulletinBoard from "../components/board/BulletinBoard";
+import BulletinBoardIn from "../components/board/BulletinBoardIn";
 function Allcontrol() {
   return (
     <Layout>
@@ -22,7 +22,7 @@ function Allcontrol() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="video" element={<CodeWithMe />} />
         <Route path="/video/incodewithme" element={<InCodeWithMe />} />
-        <Route path="/board-in" element={<BulletinBoardIn />} />
+        <Route path="/board-in/:articleNo" element={<BulletinBoardIn />} />
       </Routes>
     </Layout>
   );

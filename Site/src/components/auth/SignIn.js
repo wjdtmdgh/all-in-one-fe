@@ -4,8 +4,8 @@ import { GithubOutlined } from "@ant-design/icons";
 import { TwitterOutlined } from "@ant-design/icons";
 import { FacebookOutlined } from "@ant-design/icons";
 import { DingtalkSquareFilled } from "@ant-design/icons";
-import "../styles/SignIn.css";
-import webClient from "../utils/WebClient";
+import "../../styles/SignIn.css";
+import webClient from "../../utils/WebClient";
 import {useNavigate} from "react-router-dom";
 function SignIn() {
   const navigate = useNavigate()
