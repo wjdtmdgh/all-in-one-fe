@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "../styles/Service.css";
-import A from "../images/Servicepic1.webp";
-import B from "../images/Homepic3.png";
 import { DingtalkSquareFilled } from "@ant-design/icons";
 import { DoubleRightOutlined } from "@ant-design/icons";
 import { CheckOutlined } from "@ant-design/icons";
@@ -13,6 +11,8 @@ import Comment from "./Comment";
 import Like from "../components/Like";
 import Code from "../components/Code";
 import Record from "../components/Record";
+import A from "../images/Servicepic1.webp";
+import B from "../images/Homepic3.png";
 import C from "../images/Servicepic3.jpeg";
 import D from "../images/Serviceicon1.png";
 import E from "../images/Serviceicon2.png";

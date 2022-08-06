@@ -1,0 +1,29 @@
+.BBdiv {
+  background-color: white;
+}
+.BBh1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 55px;
+}
+.eye {
+  margin-right: 5px;
+  margin-top: 20px;
+  font-size: 15px;
+}
+.mes {
+  margin-left: 10px;
+  margin-right: 5px;
+  font-size: 15px;
+}
+.heart {
+  margin-left: 52%;
+  margin-right: 5px;
+  font-size: 15px;
+}
+.Card {
+  margin-top: 50px;
+}
+.pag {
+  margin-top: 65%;
+}
