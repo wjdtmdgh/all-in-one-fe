@@ -10,6 +10,7 @@ import InCodeWithMe from "../components/InCodeWithMe";
 import SignUp from "../components/auth/SignUp";
 import BulletinBoard from "../components/board/BulletinBoard";
 import BulletinBoardIn from "../components/board/BulletinBoardIn";
+import BoardRegister from "../components/board/BoardRegister";
 function Allcontrol() {
   return (
     <Layout>
@@ -23,6 +24,7 @@ function Allcontrol() {
         <Route path="video" element={<CodeWithMe />} />
         <Route path="/video/incodewithme" element={<InCodeWithMe />} />
         <Route path="/board-in/:articleNo" element={<BulletinBoardIn />} />
+        <Route path="register" element={<BoardRegister />} />
       </Routes>
     </Layout>
   );

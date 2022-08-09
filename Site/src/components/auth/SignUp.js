@@ -15,6 +15,7 @@ function SignUp() {
       console.log("패스워드 일치: ", values);
       const data = {
         email: values.email,
+        name: values.name,
         password: values.password,
       };
       webClient
@@ -73,6 +74,13 @@ function SignUp() {
               message: "이메일을 입력해 주세요",
             },
           ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="이름"
+          name="name"
+          rules={[{ required: true, message: "이름을 입력해 주세요" }]}
         >
           <Input />
         </Form.Item>

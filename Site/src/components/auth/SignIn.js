@@ -6,27 +6,28 @@ import { FacebookOutlined } from "@ant-design/icons";
 import { DingtalkSquareFilled } from "@ant-design/icons";
 import "../../styles/SignIn.css";
 import webClient from "../../utils/WebClient";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function SignIn() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const onFinish = (values) => {
     const data = {
       email: values.email,
       password: values.password,
     };
-    webClient.post(`http://localhost:8080/members/login`, data)
-      .then(res => {
-        console.log(res)
-        return res.data
+    webClient
+      .post(`http://localhost:8080/members/login`, data)
+      .then((res) => {
+        console.log(res);
+        return res.data;
       })
-      .then(data => {
-        localStorage.setItem("token", data.token)
-        message.success("로그인 성공")
-        navigate("/")
+      .then((data) => {
+        localStorage.setItem("token", data.token);
+        message.success("로그인 성공");
+        navigate("/");
       })
       .catch((err) => {
-        message.error(`로그인 실패. ${err.response.data}`)
-      })
+        message.error(`로그인 실패. ${err.response.data}`);
+      });
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -34,7 +35,7 @@ function SignIn() {
   };
 
   const onRegisterButtonClick = () => {
-    navigate("/sign-up")
+    navigate("/sign-up");
   };
 
   return (
@@ -62,7 +63,6 @@ function SignIn() {
           >
             <Input />
           </Form.Item>
-
           <Form.Item
             label="비밀번호"
             name="password"
@@ -78,7 +78,6 @@ function SignIn() {
           >
             <Checkbox>로그인 기억하기</Checkbox>
           </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 10, span: 18 }}>
             <Space style={{ marginBottom: 10 }}>
               <Button type="primary" htmlType="submit">
