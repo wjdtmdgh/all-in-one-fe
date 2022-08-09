@@ -10,9 +10,11 @@ function ArticlePreview({article}) {
   const onBoardRegister = (id) => {
     navigate(`/board-in/${id}`)
   }
+
   useEffect(() => {
     console.log(article)
   }, [])
+
   return (
     <div className="Card">
       <Card
@@ -23,7 +25,6 @@ function ArticlePreview({article}) {
             description={article.title + " - " + article.language}
           />
         }
-        className="BBCard"
         onClick={() => onBoardRegister(article.id)}
       >
         <div>
