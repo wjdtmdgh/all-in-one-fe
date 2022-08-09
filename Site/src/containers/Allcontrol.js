@@ -17,14 +17,14 @@ function Allcontrol() {
       <BasicPage />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="board" element={<BulletinBoard />} />
+        <Route path="/board" element={<BulletinBoard />} />
         <Route path="/service" element={<Service />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="video" element={<CodeWithMe />} />
+        <Route path="/video" element={<CodeWithMe />} />
         <Route path="/video/incodewithme" element={<InCodeWithMe />} />
         <Route path="/board-in/:articleNo" element={<BulletinBoardIn />} />
-        <Route path="register" element={<BoardRegister />} />
+        <Route path="/register" element={<BoardRegister />} />
       </Routes>
     </Layout>
   );

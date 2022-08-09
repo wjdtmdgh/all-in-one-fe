@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Col, Row, Table} from "antd";
-import { Pagination } from "antd";
+import {Col, Row} from "antd";
 import ArticlePreview from "./ArticlePreview";
 import webClient from "../../utils/WebClient";
 import { Button } from "antd";
