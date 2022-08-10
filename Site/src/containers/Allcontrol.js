@@ -23,7 +23,7 @@ function Allcontrol() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/video" element={<CodeWithMe />} />
         <Route path="/video/incodewithme" element={<InCodeWithMe />} />
-        <Route path="/board-in/:articleNo" element={<BulletinBoardIn />} />
+        <Route path="/board-in/:articleId" element={<BulletinBoardIn />} />
         <Route path="/register" element={<BoardRegister />} />
       </Routes>
     </Layout>
