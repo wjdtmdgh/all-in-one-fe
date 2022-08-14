@@ -1,7 +1,7 @@
-import "../styles/Home.css";
-import Q from "../images/Homepic1.png";
-import W from "../images/Homepic2.jpeg";
-import R from "../images/Homepic6.jpeg";
+import "../../styles/Home.css";
+import Q from "../../images/HomePic/Homepic1.png";
+import W from "../../images/HomePic/Homepic2.jpeg";
+import R from "../../images/HomePic/Homepic6.jpeg";
 import { useState } from "react";
 import { Divider } from "antd";
 import { Footer } from "antd/es/layout/layout";
@@ -11,16 +11,16 @@ import { CheckOutlined } from "@ant-design/icons";
 import { SolutionOutlined } from "@ant-design/icons";
 import { EditOutlined } from "@ant-design/icons";
 import Comment from "./Comment";
-import Like from "../components/Like";
-import Code from "../components/Code";
-import Record from "../components/Record";
-import A from "../images/Servicepic1.webp";
-import B from "../images/Homepic3.png";
-import C from "../images/Servicepic3.jpeg";
-import D from "../images/Serviceicon1.png";
-import E from "../images/Serviceicon2.png";
-import F from "../images/Serviceicon3.png";
-import G from "../images/Serviceicon4.png";
+import Like from "./Like";
+import Code from "./Code";
+import Record from "./Record";
+import A from "../../images/Servicepic1.webp";
+import B from "../../images/HomePic/Homepic3.png";
+import C from "../../images/Servicepic3.jpeg";
+import D from "../../images/Serviceicon1.png";
+import E from "../../images/Serviceicon2.png";
+import F from "../../images/Serviceicon3.png";
+import G from "../../images/Serviceicon4.png";
 import { Carousel } from "antd";
 import { useNavigate } from "react-router-dom";
 function Home() {
@@ -51,23 +51,6 @@ function Home() {
     code: <Code />,
     record: <Record />,
   };
-  // const [content, setContent] = useState("coding");
-
-  // const coding = () => {
-  //   setContent("coding");
-  // };
-  // const board = () => {
-  //   setContent("board");
-  // };
-  // const videochat = () => {
-  //   setContent("videochat");
-  // };
-  // const selectComponent = {
-  //   coding: <Coding />,
-  //   board: <Board />,
-  //   videochat: <VideoChat />,
-  // };
-
   return (
     <div className="q">
       <div className="Home">
@@ -112,10 +95,6 @@ function Home() {
       </div>
       <Divider id="div">ALL-IN-ONE</Divider>
       <div className="divS">
-        {/* <h1 className="serviceh">
-          <DingtalkSquareFilled />
-          <b>ALL IN ONE</b>
-        </h1> */}
         <h1 className="serviceH">
           <b>
             더 능률적으로, 더 여유롭게
@@ -251,47 +230,6 @@ function Home() {
         {gaesipan && selectComponent[gaesipan]}
       </div>
       <Divider>ALL-IN-ONE</Divider>
-      {/* <div>
-        <h1 className="h3">
-          <b>
-            언제 어디서나 가장 쉬운{" "}
-            <span className="span">협업 공간, 올인원!</span>
-          </b>
-        </h1>
-        <p className="p3">
-          <b>
-            플랫폼 올인원을 사용하면 소통이 빨라지고 공부 효율성이 높아집니다.
-          </b>
-        </p>
-        <div className="Button">
-          <Button
-            type="primary"
-            htmlType="submit"
-            onClick={coding}
-            className="button"
-          >
-            실시간 코딩
-          </Button>
-          <Button
-            type="primary"
-            htmlType="submit"
-            onClick={board}
-            className="button"
-          >
-            게시판 기능
-          </Button>
-          <Button
-            type="primary"
-            htmlType="submit"
-            onClick={videochat}
-            className="button"
-          >
-            화상회의 기능
-          </Button>
-        </div>
-        {content && selectComponent[content]} */}
-      {/* </div> */}
-      {/* <Divider id="div">ALL-IN-ONE</Divider> */}
       <Footer
         style={{
           textAlign: "center",

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../styles/CodeWithMe.css";
+import "../../styles/CodeWithMe.css";
 import { Col, Image, Row } from "antd";
-import img1 from "../images/CWMpic1.webp";
-import img2 from "../images/CWMpic2.webp";
+import img1 from "../../images/CodewithmePic/CWMpic1.webp";
+import img2 from "../../images/CodewithmePic/CWMpic2.webp";
 import { Button } from "antd";
 import { Divider } from "antd";
 import { Footer } from "antd/es/layout/layout";

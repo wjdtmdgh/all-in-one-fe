@@ -1,12 +1,9 @@
 import React from "react";
-import Cimg from "../images/Servipic10.png";
+import Cimg from "../../images/Servipic10.png";
 import { HeartTwoTone } from "@ant-design/icons";
 function Like() {
   return (
     <div>
-      {/* <h1 className="Cimgh2">
-        <b>댓글을 남겨 상대방하고 소통하세요!</b>
-      </h1> */}
       <div className="Cimgd2">
         <img src={Cimg} className="Cimg2"></img>
         <div className="Cimgd2">

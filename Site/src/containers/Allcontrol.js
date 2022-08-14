@@ -1,12 +1,12 @@
 import React from "react";
-import BasicPage from "../components/BasicPage";
+import Navbar from "./Navbar";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "../components/auth/SignIn";
-import Home from "../components/Home";
+import Home from "../components/about/Home";
 import Service from "../components/Service";
 import { Layout } from "antd";
-import CodeWithMe from "../components/CodeWithMe";
-import InCodeWithMe from "../components/InCodeWithMe";
+import CodeWithMe from "../components/codewithme/CodeWithMe";
+import InCodeWithMe from "../components/codewithme/InCodeWithMe";
 import SignUp from "../components/auth/SignUp";
 import BulletinBoard from "../components/board/BulletinBoard";
 import BulletinBoardIn from "../components/board/BulletinBoardIn";
@@ -14,7 +14,7 @@ import BoardRegister from "../components/board/BoardRegister";
 function Allcontrol() {
   return (
     <Layout>
-      <BasicPage />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/board" element={<BulletinBoard />} />

@@ -1,13 +1,10 @@
 import React from "react";
-import Cimg from "../images/Servipic8.png";
+import Cimg from "../../images/Servipic8.png";
 import { Col, Image, Row } from "antd";
 
 function comment() {
   return (
     <div>
-      {/* <h1 className="Cimgh3">
-        <b>댓글을 남겨 상대방하고 소통하세요!</b>
-      </h1> */}
       <Row align="center">
         <Col flex="1"></Col>
         <Col flex="2" align="center" direction="vertical" className="col">

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "../styles/InCodeWithMe.css";
+import "../../styles/InCodeWithMe.css";
 import { Checkbox, Col, Row, Select } from "antd";
 import JoinMeeting from "./JoinMeeting";
 import AceEditor from "react-ace";

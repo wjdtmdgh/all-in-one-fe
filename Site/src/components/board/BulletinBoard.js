@@ -45,7 +45,6 @@ function BulletinBoard() {
             <Col span={3}></Col>
             {articlesPreview}
           </Row>
-          {/* <Pagination defaultCurrent={1} total={50} className="pag" /> */}
         </div>
       </div>
     </div>

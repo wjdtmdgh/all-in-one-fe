@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getToken } from "../utils/TokenUtils";
 const { Header, Content, Footer } = Layout;
 
-const BasicPage = () => {
+const Navbar = () => {
   return (
     <div>
       <Layout className="layout">
@@ -17,9 +17,6 @@ const BasicPage = () => {
             <Menu.Item>
               <Link to="/">About</Link>
             </Menu.Item>
-            {/* <Menu.Item>
-              <Link to="/service">Service</Link>
-            </Menu.Item> */}
             <Menu.Item>
               <Link to="/video">Code With Me</Link>
             </Menu.Item>
@@ -39,4 +36,4 @@ const BasicPage = () => {
   );
 };
 
-export default BasicPage;
+export default Navbar;
