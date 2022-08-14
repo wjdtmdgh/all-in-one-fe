@@ -1,38 +1,27 @@
-import "../../styles/Home.css";
-import "../../styles/Service.css";
-import Q from "../../images/HomePic/Homepic1.png";
-import W from "../../images/HomePic/Homepic2.jpeg";
-import R from "../../images/HomePic/Homepic6.jpeg";
-import { useState } from "react";
-import { Divider } from "antd";
-import { Footer } from "antd/es/layout/layout";
-import { Button, Popover } from "antd";
+import React, { useState } from "react";
+import "../styles/Service.css";
+import { DingtalkSquareFilled } from "@ant-design/icons";
 import { DoubleRightOutlined } from "@ant-design/icons";
 import { CheckOutlined } from "@ant-design/icons";
 import { SolutionOutlined } from "@ant-design/icons";
+import { HeartTwoTone } from "@ant-design/icons";
 import { EditOutlined } from "@ant-design/icons";
+import { Button, Popover } from "antd";
 import Comment from "./Comment";
-import Like from "./Like";
-import Code from "./Code";
-import Record from "./Record";
-import A from "../../images/ServicePic/Servicepic1.webp";
-import B from "../../images/HomePic/Homepic3.png";
-import C from "../../images/ServicePic/Servicepic3.jpeg";
-import D from "../../images/ServicePic/Serviceicon1.png";
-import E from "../../images/ServicePic/Serviceicon2.png";
-import F from "../../images/ServicePic/Serviceicon3.png";
-import G from "../../images/ServicePic/Serviceicon4.png";
+import Like from "../components/Like";
+import Code from "../components/Code";
+import Record from "../components/Record";
+import A from "../images/Servicepic1.webp";
+import B from "../images/Homepic3.png";
+import C from "../images/Servicepic3.jpeg";
+import D from "../images/Serviceicon1.png";
+import E from "../images/Serviceicon2.png";
+import F from "../images/Serviceicon3.png";
+import G from "../images/Serviceicon4.png";
 import { Carousel } from "antd";
-import { useNavigate } from "react-router-dom";
-function Home() {
-  const navigate = useNavigate();
-  const onRegisterButtonClick = () => {
-    navigate("/sign-up");
-  };
+import { Divider } from "antd";
 
-  const onLoginButtonClick = () => {
-    navigate("/sign-in");
-  };
+function Service() {
   const [gaesipan, setGaesipan] = useState("comment");
   const comment = () => {
     setGaesipan("comment");
@@ -53,49 +42,12 @@ function Home() {
     record: <Record />,
   };
   return (
-    <div className="q">
-      <div className="Home">
-        <h1 className="h1">
-          <b>가장 쉬운 스터디 플랫폼</b>
-        </h1>
-        <h1 className="h2">
-          <b>ALL-IN-ONE</b>
-        </h1>
-        <p className="p1">
-          혼자 공부하지말고 같이하자!
-          <br />
-          <b>올인원</b>과 함께라면 신속하고 효율적인 공부를 할 수 있습니다.
-        </p>
-        <Button
-          type="primary"
-          htmlType="submit"
-          onClick={onRegisterButtonClick}
-          className="member"
-        >
-          회원가입
-        </Button>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <p className="p2">
-          이미 가입하셨나요?{" "}
-          <button className="login" onClick={onLoginButtonClick}>
-            로그인
-          </button>
-        </p>
-      </div>
-      <div className="img">
-        <img src={Q} className="img1" />
-        <img src={W} className="img2" />
-        <img src={R} className="img3" />
-      </div>
-      <Divider id="div">ALL-IN-ONE</Divider>
+    <div className="serviceD">
       <div className="divS">
+        <h1 className="serviceh">
+          <DingtalkSquareFilled />
+          <b>ALL IN ONE</b>
+        </h1>
         <h1 className="serviceH">
           <b>
             더 능률적으로, 더 여유롭게
@@ -231,14 +183,8 @@ function Home() {
         {gaesipan && selectComponent[gaesipan]}
       </div>
       <Divider>ALL-IN-ONE</Divider>
-      <Footer
-        style={{
-          textAlign: "center",
-        }}
-      >
-        AlgorithmStudy Platform ©2022 Created by Seungho.J
-      </Footer>
     </div>
   );
 }
-export default Home;
+
+export default Service;

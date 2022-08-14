@@ -1,5 +1,5 @@
 import React from "react";
-import Cimg from "../../images/Servipic9.jpeg";
+import Cimg from "../../images/ServicePic/Servipic9.jpeg";
 import { SendOutlined } from "@ant-design/icons";
 import { TeamOutlined } from "@ant-design/icons";
 import { SoundOutlined } from "@ant-design/icons";

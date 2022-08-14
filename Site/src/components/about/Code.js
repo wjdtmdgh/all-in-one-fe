@@ -1,5 +1,5 @@
 import React from "react";
-import Cimg from "../../images/Servipic8.png";
+import Cimg from "../../images/ServicePic/Servipic8.png";
 import { Col, Image, Row } from "antd";
 
 function comment() {

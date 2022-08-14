@@ -1,5 +1,5 @@
 import React from "react";
-import Cimg from "../../images/Servipic10.png";
+import Cimg from "../../images/ServicePic/Servipic10.png";
 import { HeartTwoTone } from "@ant-design/icons";
 function Like() {
   return (

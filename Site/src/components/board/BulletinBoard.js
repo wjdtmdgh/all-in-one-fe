@@ -3,7 +3,7 @@ import {Col, Row} from "antd";
 import ArticlePreview from "./ArticlePreview";
 import webClient from "../../utils/WebClient";
 import { Button } from "antd";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 function BulletinBoard() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);

@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "../components/auth/SignIn";
 import Home from "../components/about/Home";
-import Service from "../components/Service";
 import { Layout } from "antd";
 import CodeWithMe from "../components/codewithme/CodeWithMe";
 import InCodeWithMe from "../components/codewithme/InCodeWithMe";
@@ -18,7 +17,6 @@ function Allcontrol() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/board" element={<BulletinBoard />} />
-        <Route path="/service" element={<Service />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/video" element={<CodeWithMe />} />

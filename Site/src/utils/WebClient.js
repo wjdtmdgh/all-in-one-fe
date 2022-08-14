@@ -31,7 +31,7 @@ class WebClient {
     return axios.get(...arguments)
       .catch(handleError)
   }
-
+  
   post() {
     return axios.post(...arguments)
       .catch(handleError)
