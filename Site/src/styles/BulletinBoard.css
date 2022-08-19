@@ -17,7 +17,7 @@
   font-size: 15px;
 }
 .heart {
-  margin-left: 52%;
+  margin-left: 65%;
   margin-right: 5px;
   font-size: 15px;
 }
@@ -26,4 +26,47 @@
 }
 .pag {
   margin-top: 65%;
+}
+.card {
+  width: 500px;
+}
+.BBdiv2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.BRarticle {
+  margin: 2% 2% 2% 5%;
+}
+.BRbutton {
+  display: block;
+  margin: auto;
+}
+.td {
+  border-bottom: 1px solid #444444;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.table {
+  border: 1px solid #444444;
+}
+.BRv {
+  display: flex;
+  flex-wrap: wrap;
+}
+.BRv1 {
+  width: 15%;
+}
+.BRv2 {
+  width: 17%;
+  /* border: 1px solid #444444; */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(https://media.istockphoto.com/vectors/smart-phone-with-blank-screen-isolated-on-white-background-vector-id954326378?k=20&m=954326378&s=170667a&w=0&h=1p_vHJs1j4i6-DA9pDGHYPEqIiNxxAvRsggxmrylPJk=);
+  background-position: center;
+  background-size: 220% 125%;
+}
+.BRv3 {
+  margin-top: -30%;
+  margin-bottom: 40%;
+  margin-left: 20%;
 }

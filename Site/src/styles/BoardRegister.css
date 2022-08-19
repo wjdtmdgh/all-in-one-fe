@@ -1,3 +1,21 @@
 .BRdiv {
   background-color: white;
 }
+.BRform {
+  border-radius: 35px;
+  width: 60%;
+  padding: 3%;
+  margin: auto;
+  border: 2px solid #d9d6d6;
+}
+.BRh {
+  text-align: center;
+  padding: 3%;
+}
+.Form {
+  margin-top: 5%;
+  margin-right: 25%;
+}
+.BRCol {
+  margin-right: 8%;
+}

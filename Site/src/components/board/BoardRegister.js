@@ -1,16 +1,16 @@
-import React, {useState} from "react";
-import {Button, Col, Form, Input, message, Row, Select} from "antd";
+import React, { useState } from "react";
+import { Button, Col, Form, Input, message, Row, Select } from "antd";
 import "../../styles/BoardRegister.css";
 import { DingtalkSquareFilled } from "@ant-design/icons";
 import webClient from "../../utils/WebClient";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import TextArea from "antd/es/input/TextArea";
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
-import remarkGfm from 'remark-gfm'
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const layout = {
   labelCol: { span: 8 },
@@ -134,17 +134,17 @@ Much more info is available in the
 
 ***
 
-A component by [Espen Hovlandsdal](https://espen.codes/)`)
+A component by [Espen Hovlandsdal](https://espen.codes/)`);
 
   const onFinish = (values) => {
-    console.log("values: ", values)
+    console.log("values: ", values);
     const data = {
       title: values.title,
       contents: values.contents,
       writerId: 1, // TODO: get user ID from JWT
-      language: values.language
+      language: values.language,
     };
-    console.log("data: ", data)
+    console.log("data: ", data);
     webClient
       .post(`http://localhost:8080/articles`, data)
       .then((res) => res.data)
@@ -157,89 +157,91 @@ A component by [Espen Hovlandsdal](https://espen.codes/)`)
   };
   return (
     <div className="BRdiv">
-      <div className="SignIndiv">
-        <h1 className="SignInh">
+      {/* <div className="BRform">
+        <h1 className="BRh">
           {" "}
           <DingtalkSquareFilled />
           ALL-IN-ONE
-        </h1>
-        <Form
-          {...layout}
-          name="nest-messages"
-          onFinish={onFinish}
-          validateMessages={validateMessages}
+        </h1> */}
+      <Form
+        {...layout}
+        name="nest-messages"
+        onFinish={onFinish}
+        validateMessages={validateMessages}
+        className="Form"
+      >
+        <Form.Item
+          name="title"
+          label="제목"
+          rules={[{ required: true, message: "제목을 입력해 주세요" }]}
         >
-          <Form.Item
-            name="title"
-            label="제목"
-            rules={[{ required: true, message: "제목을 입력해 주세요" }]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="contents"
-            label="내용"
-            rules={[{ required: true, message: "글 내용을 입력해 주세요" }]}
-          >
-            <Row>
-              <Col>
-                <TextArea
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder="Controlled autosize"
-                  autoSize={{
-                    minRows: 3,
-                    maxRows: 5,
-                  }}
-                />
-              </Col>
-              <Col>
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm, remarkMath]}
-                  rehypePlugins={[rehypeKatex]}
-                  components={{
-                    code({node, inline, className, children, ...props}) {
-                      const match = /language-(\w+)/.exec(className || '')
-                      return !inline && match ? (
-                        <SyntaxHighlighter
-                          children={String(children).replace(/\n$/, '')}
-                          style={dark}
-                          language={match[1]}
-                          PreTag="div"
-                          {...props}
-                        />
-                      ) : (
-                        <code className={className} {...props}>
-                          {children}
-                        </code>
-                      )
-                    }
-                  }}
-                >
-                  {content}
-                </ReactMarkdown>
-              </Col>
-            </Row>
-          </Form.Item>
-          <Form.Item
-            name="language"
-            label="Language"
-            rules={[{ required: true, message: "제목을 입력해 주세요" }]}
-          >
-            <Select>
-              <Select.Option value="c++">C++</Select.Option>
-              <Select.Option value="python">Python</Select.Option>
-              <Select.Option value="Java">Java</Select.Option>
-            </Select>
-          </Form.Item>
-          <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
-      </div>
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="contents"
+          label="내용"
+          rules={[{ required: true, message: "글 내용을 입력해 주세요" }]}
+        >
+          <Row>
+            <Col span={11} className="BRCol">
+              <TextArea
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Controlled autosize"
+                autoSize={{
+                  minRows: 10,
+                  maxRows: 100,
+                }}
+              />
+            </Col>
+            <Col span={11}>
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || "");
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        children={String(children).replace(/\n$/, "")}
+                        style={dark}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      />
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
+                  },
+                }}
+              >
+                {content}
+              </ReactMarkdown>
+            </Col>
+          </Row>
+        </Form.Item>
+        <Form.Item
+          name="language"
+          label="Language"
+          rules={[{ required: true, message: "제목을 입력해 주세요" }]}
+        >
+          <Select>
+            <Select.Option value="c++">C++</Select.Option>
+            <Select.Option value="python">Python</Select.Option>
+            <Select.Option value="Java">Java</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
+    //{" "}
+    // </div>
   );
 }
 export default BoardRegister;
