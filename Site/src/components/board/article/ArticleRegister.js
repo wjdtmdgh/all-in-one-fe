@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Input, message, Row, Select } from "antd";
-import "../../styles/BoardRegister.css";
+import "../../../styles/BoardRegister.css";
 import { DingtalkSquareFilled } from "@ant-design/icons";
-import webClient from "../../utils/WebClient";
+import webClient from "../../../utils/WebClient";
 import { useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import TextArea from "antd/es/input/TextArea";
@@ -11,6 +11,7 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import ArticleContent from "./ArticleContent";
 
 const layout = {
   labelCol: { span: 8 },
@@ -26,7 +27,7 @@ const validateMessages = {
     range: "${label} must be between ${min} and ${max}",
   },
 };
-function BoardRegister() {
+function ArticleRegister() {
   const navigate = useNavigate();
   const [content, setContent] = useState(`# A demo of \`react-markdown\`
 
@@ -195,30 +196,7 @@ A component by [Espen Hovlandsdal](https://espen.codes/)`);
               />
             </Col>
             <Col span={11}>
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm, remarkMath]}
-                rehypePlugins={[rehypeKatex]}
-                components={{
-                  code({ node, inline, className, children, ...props }) {
-                    const match = /language-(\w+)/.exec(className || "");
-                    return !inline && match ? (
-                      <SyntaxHighlighter
-                        children={String(children).replace(/\n$/, "")}
-                        style={dark}
-                        language={match[1]}
-                        PreTag="div"
-                        {...props}
-                      />
-                    ) : (
-                      <code className={className} {...props}>
-                        {children}
-                      </code>
-                    );
-                  },
-                }}
-              >
-                {content}
-              </ReactMarkdown>
+              <ArticleContent content={content}/>
             </Col>
           </Row>
         </Form.Item>
@@ -244,4 +222,4 @@ A component by [Espen Hovlandsdal](https://espen.codes/)`);
     // </div>
   );
 }
-export default BoardRegister;
+export default ArticleRegister;

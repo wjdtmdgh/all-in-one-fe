@@ -7,7 +7,7 @@ import {
 } from "@ant-design/icons";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../../styles/BulletinBoard.css";
+import "../../../styles/BulletinBoard.css";
 
 function ArticlePreview({ article }) {
   const { Meta } = Card;

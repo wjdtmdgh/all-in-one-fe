@@ -7,22 +7,22 @@ import { Layout } from "antd";
 import CodeWithMe from "../components/codewithme/CodeWithMe";
 import InCodeWithMe from "../components/codewithme/InCodeWithMe";
 import SignUp from "../components/auth/SignUp";
-import BulletinBoard from "../components/board/BulletinBoard";
-import BulletinBoardIn from "../components/board/BulletinBoardIn";
-import BoardRegister from "../components/board/BoardRegister";
+import ArticleList from "../components/board/article/ArticleList";
+import ArticleDetail from "../components/board/article/ArticleDetail";
+import ArticleRegister from "../components/board/article/ArticleRegister";
 function Allcontrol() {
   return (
     <Layout>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/board" element={<BulletinBoard />} />
+        <Route path="/board" element={<ArticleList />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/video" element={<CodeWithMe />} />
         <Route path="/video/incodewithme" element={<InCodeWithMe />} />
-        <Route path="/board-in/:articleId" element={<BulletinBoardIn />} />
-        <Route path="/register" element={<BoardRegister />} />
+        <Route path="/board-in/:articleId" element={<ArticleDetail />} />
+        <Route path="/register" element={<ArticleRegister />} />
       </Routes>
     </Layout>
   );

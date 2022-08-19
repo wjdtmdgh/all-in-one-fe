@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "antd";
 import ArticlePreview from "./ArticlePreview";
-import webClient from "../../utils/WebClient";
+import webClient from "../../../utils/WebClient";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
-import JoinMeeting from "../codewithme/JoinMeeting";
-function BulletinBoard() {
+import JoinMeeting from "../../codewithme/JoinMeeting";
+function ArticleList() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [articlesPreview, setArticlesPreview] = useState(<></>);
@@ -85,4 +84,4 @@ function BulletinBoard() {
   );
 }
 
-export default BulletinBoard;
+export default ArticleList;
