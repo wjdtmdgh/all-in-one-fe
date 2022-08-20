@@ -5,7 +5,7 @@ import {
   MessageFilled,
   UserOutlined,
 } from "@ant-design/icons";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../../styles/BulletinBoard.css";
 
@@ -15,7 +15,16 @@ function ArticlePreview({ article }) {
   const onBoardRegister = (id) => {
     navigate(`/board-in/${id}`);
   };
-
+  if (article.language === "C++") {
+    var language =
+      "https://cloud.google.com/static/cpp/images/cpp-logo.png?hl=ko";
+  } else if (article.language === "Java") {
+    language =
+      "https://images.velog.io/images/focusonmx/post/f42a9b8b-48f6-4234-ac31-eacf3a4d3709/1_J76LX5mvMD-bP1qCj8PQpA.png";
+  } else if (article.language === "Python") {
+    language =
+      "https://images.velog.io/images/xxhaileypark/post/7a950437-5c29-4186-98c0-99a4d2304da4/Python-language.png";
+  }
   useEffect(() => {
     console.log(article);
   }, []);
@@ -34,10 +43,7 @@ function ArticlePreview({ article }) {
       >
         <div>
           {" "}
-          <Image
-            width={280}
-            src="https://blog.kakaocdn.net/dn/cgxs4o/btqCWbZiAbW/DmHVgTvU1wwGpjvMlbTaUK/img.png"
-          />
+          <Image width={280} height={200} src={language} />
         </div>
         <div>
           <EyeFilled className="eye" />
