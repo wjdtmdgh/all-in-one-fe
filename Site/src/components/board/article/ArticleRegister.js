@@ -206,8 +206,8 @@ A component by [Espen Hovlandsdal](https://espen.codes/)`);
           rules={[{ required: true, message: "제목을 입력해 주세요" }]}
         >
           <Select>
-            <Select.Option value="c++">C++</Select.Option>
-            <Select.Option value="python">Python</Select.Option>
+            <Select.Option value="C++">C++</Select.Option>
+            <Select.Option value="Python">Python</Select.Option>
             <Select.Option value="Java">Java</Select.Option>
           </Select>
         </Form.Item>
