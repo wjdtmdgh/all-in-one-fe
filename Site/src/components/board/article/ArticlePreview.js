@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../../styles/BulletinBoard.css";
+import ArticleContent from "./ArticleContent";
 
 function ArticlePreview({ article }) {
   const { Meta } = Card;
@@ -28,7 +29,7 @@ function ArticlePreview({ article }) {
   useEffect(() => {
     console.log(article);
   }, []);
-  const content = <div>{article.contents}</div>;
+  const content = <ArticleContent content={article.contents}/> // TODO 최대 사이즈 제한
   return (
     <div>
       <Card

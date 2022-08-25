@@ -25,7 +25,7 @@ function ReplyEditor({articleId, comments, getReplies}) {
         getReplies()
       })
       .catch((err) => {
-        message.error("회원가입 실패. 이미 가입된 이메일입니다.");
+        message.error("회원가입 실패. 이미 가입된 이메일입니다."); // TODO 에러 메시지 변경하기
       })
       .finally(() => {
         setSubmitting(false);
