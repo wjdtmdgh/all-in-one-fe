@@ -10,6 +10,8 @@ import SignUp from "../components/auth/SignUp";
 import ArticleList from "../components/board/article/ArticleList";
 import ArticleDetail from "../components/board/article/ArticleDetail";
 import ArticleRegister from "../components/board/article/ArticleRegister";
+import ArticleModify from "../components/board/article/ArticleModify";
+import ArticleVideoChatRoom from "../components/board/article/ArticleVideoChatRoom";
 function Allcontrol() {
   return (
     <Layout>
@@ -23,6 +25,8 @@ function Allcontrol() {
         <Route path="/video/incodewithme" element={<InCodeWithMe />} />
         <Route path="/board-in/:articleId" element={<ArticleDetail />} />
         <Route path="/register" element={<ArticleRegister />} />
+        <Route path="/board-in/:articleId/modify" element={<ArticleModify />} />
+        <Route path="/videochatroom" element={<ArticleVideoChatRoom />} />
       </Routes>
     </Layout>
   );

@@ -4,6 +4,7 @@ import webClient from "../../../utils/WebClient";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
+import ArticleVideoChat from "./ArticleVideoChat";
 import JoinMeeting from "../../codewithme/JoinMeeting";
 function ArticleList() {
   const navigate = useNavigate();
@@ -51,34 +52,7 @@ function ArticleList() {
         <Divider>ALL-IN-ONE</Divider>
       </div>
       <div>
-        <h1 className="BBh1">Video Chat</h1>
-        <div className="BRv">
-          <div className="BRv1">
-            <table className="table">
-              <tr>
-                <td className="td">Title</td>
-                <td className="td">&nbsp; : &nbsp; </td>
-                <td className="td">정 승 호</td>
-              </tr>
-              <tr>
-                <td className="td">Contents</td>
-                <td className="td">&nbsp; : &nbsp;</td>
-                <td className="td">승호 상어와 파이어 볼</td>
-              </tr>
-              <tr>
-                <td className="td">Language</td>
-                <td className="td">&nbsp; : &nbsp;</td>
-                <td className="td">JAVA</td>
-              </tr>
-            </table>
-          </div>
-          <div className="BRv2">
-            {" "}
-            <div className="BRv3">
-              <JoinMeeting />
-            </div>
-          </div>
-        </div>
+        <ArticleVideoChat />
       </div>
     </div>
   );

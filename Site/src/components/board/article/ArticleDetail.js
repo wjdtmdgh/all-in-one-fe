@@ -1,23 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../../../styles/BulletinBoardIn.css";
 import { Rate } from "antd";
-import {
-  Card,
-  Col,
-  Row,
-  Avatar,
-} from "antd";
+import { Card, Col, Row, Avatar, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { HeartFilled } from "@ant-design/icons";
 import { Divider } from "antd";
 import webClient from "../../../utils/WebClient";
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ReplyList from "../reply/ReplyList";
 import ArticleContent from "./ArticleContent";
-
+import { useNavigate } from "react-router-dom";
 function ArticleDetail() {
-  const {articleId} = useParams();
+  const { articleId } = useParams();
   const [article, setArticle] = useState([]);
+  const navigate = useNavigate();
+  const onModifyButtonClick = () => {
+    navigate(`/board-in/${articleId}/modify`);
+  };
 
   useEffect(() => {
     webClient
@@ -45,7 +44,7 @@ function ArticleDetail() {
             }
             className="BBIC"
           >
-            <ArticleContent content={article.contents}/>
+            <ArticleContent content={article.contents} />
             <Rate
               className="rate"
               count={1}
@@ -53,10 +52,13 @@ function ArticleDetail() {
             />
             <b>좋아요</b>
             <>
-              <ReplyList articleId={articleId}/>
+              <ReplyList articleId={articleId} />
             </>
           </Card>
         </Col>
+        <Button type="primary" onClick={onModifyButtonClick}>
+          글 수정
+        </Button>
       </Row>
       <Divider id="div">ALL-IN-ONE</Divider>
     </div>

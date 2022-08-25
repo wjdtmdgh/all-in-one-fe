@@ -1,4 +1,4 @@
-import { Avatar, Card, Image } from "antd";
+import { Avatar, Card, Image, Popover } from "antd";
 import {
   EyeFilled,
   HeartTwoTone,
@@ -28,7 +28,7 @@ function ArticlePreview({ article }) {
   useEffect(() => {
     console.log(article);
   }, []);
-
+  const content = <div>{article.contents}</div>;
   return (
     <div>
       <Card
@@ -42,8 +42,9 @@ function ArticlePreview({ article }) {
         onClick={() => onBoardRegister(article.id)}
       >
         <div>
-          {" "}
-          <Image width={280} height={200} src={language} />
+          <Popover content={content} title="Contents">
+            <Image width={280} height={200} src={language} />
+          </Popover>
         </div>
         <div>
           <EyeFilled className="eye" />
