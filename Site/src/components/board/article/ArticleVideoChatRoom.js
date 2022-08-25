@@ -31,8 +31,8 @@ function ArticleVideoChatRoom() {
   const [language, setLanguage] = useState("javascript");
   const [fontSize, setFontSize] = useState(15);
   const [readOnly, setReadOnly] = useState(false);
-  const [highlightActiveLineChange, setHighlightActiveLineChange] =
-    useState(true);
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
 
   const onFontSizeChange = (newFontSize) => {
     console.log(newFontSize);
@@ -55,17 +55,32 @@ function ArticleVideoChatRoom() {
   const onReadOnly = (e) => {
     setReadOnly(e.target.checked);
   };
-  const [collapsed, setCollapsed] = useState(false);
-  const items = [
-    getItem("Video", "1", <DesktopOutlined />),
-    getItem("Record", "sub2", <VideoCameraOutlined />),
-    getItem("Sound", "9", <SoundOutlined />),
-    getItem("User", "sub1", <UserOutlined />, [
-      getItem("Jeong", "3"),
-      getItem("Lee", "4"),
-      getItem("Kim", "5"),
+  const items = [ // TODO 채팅창 ON/OFF 추가
+    getItem("Video", "video", <DesktopOutlined />),
+    getItem("Record", "record", <VideoCameraOutlined />),
+    getItem("Sound", "sound", <SoundOutlined />),
+    getItem("User", "user", <UserOutlined />, [
+      getItem("Jeong", "1"),
+      getItem("Lee", "2"),
+      getItem("Kim", "3"),
     ]),
   ];
+  const handleClick = ({ item, key, keyPath, domEvent }) => {
+    if(selectedKeys.includes(key)){
+      const nextSelectedKeys = [
+        ...selectedKeys
+      ].filter(item => item !== key)
+      setSelectedKeys(nextSelectedKeys)
+    }
+    else {
+      const nextSelectedKeys = [
+        ...selectedKeys,
+        key
+      ]
+      setSelectedKeys(nextSelectedKeys)
+    }
+  }
+
   return (
     <div className="ARdiv">
       <Layout
@@ -73,24 +88,22 @@ function ArticleVideoChatRoom() {
           minHeight: "100vh",
         }}
       >
-        <Sider
-          collapsible
-          collapsed={collapsed}
-          onCollapse={(value) => setCollapsed(value)}
-        >
+        <Sider collapsed={true}>
           <div className="logo" />
           <Menu
             theme="dark"
-            defaultSelectedKeys={["1"]}
+            defaultSelectedKeys={["video", "record"]}
+            selectedKeys={selectedKeys}
+            onClick={handleClick}
             mode="inline"
             items={items}
           />
         </Sider>
         <Layout className="site-layout">
           <Header></Header>
-          <Content>
+          <Content> {/* TODO 캠화면 비율 조정 */}
             <Row className="ARcol">
-              <Col span={7}>
+              <Col>
                 <div className="ARdd">
                   <UserOutlined className="ARicon" />
                 </div>
@@ -99,7 +112,7 @@ function ArticleVideoChatRoom() {
                   <UserOutlined className="ARicon" />
                 </div>
               </Col>
-              <Col span={7}>
+              <Col>
                 <div className="ARdd">
                   {" "}
                   <UserOutlined className="ARicon" />
@@ -154,7 +167,7 @@ function ArticleVideoChatRoom() {
                 </div>
               </Col>
               <Col span={5}>
-                {" "}
+                {" "}{/* TODO 에디터 크기 키우기 */}
                 <AceEditor
                   placeholder="Placeholder Text"
                   mode={language}

@@ -29,7 +29,7 @@ function ArticlePreview({ article }) {
   useEffect(() => {
     console.log(article);
   }, []);
-  const content = <ArticleContent content={article.contents}/> // TODO 최대 사이즈 제한
+  const content = <ArticleContent content={article.contents}/>
   return (
     <div>
       <Card
