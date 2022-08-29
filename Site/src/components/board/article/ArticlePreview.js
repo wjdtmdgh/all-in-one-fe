@@ -14,7 +14,7 @@ function ArticlePreview({ article }) {
   const { Meta } = Card;
   const navigate = useNavigate();
   const onBoardRegister = (id) => {
-    navigate(`/board-in/${id}`);
+    navigate(`/board/${id}`);
   };
   if (article.language === "C++") {
     var language =

@@ -2,20 +2,20 @@ import {
   DesktopOutlined,
   SoundOutlined,
   VideoCameraOutlined,
-  UserOutlined,
+  UserOutlined, WechatOutlined,
 } from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, Row, Col, Checkbox, Select } from "antd";
-import React from "react";
+import {Layout, Menu, Row, Col, Checkbox, Select, Drawer} from "antd";
+import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
-import ReplyList from "../reply/ReplyList";
 import { Option } from "antd/es/mentions";
-import "../../../styles/Articlevideochatroom.css";
+import "../../styles/Articlevideochatroom.css";
 import AceEditor from "react-ace";
 import { useState } from "react";
 import "ace-builds";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/src-noconflict/ext-language_tools";
+import ChatList from "./chat/ChatList";
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -25,15 +25,22 @@ function getItem(label, key, icon, children) {
     label,
   };
 }
-function ArticleVideoChatRoom() {
+function VideoChatDetail() {
   const { articleId } = useParams();
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState("javascript");
   const [fontSize, setFontSize] = useState(15);
   const [readOnly, setReadOnly] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState([]);
-  const [highlightActiveLineChange, setHighlightActiveLineChange] =
-    useState(true);
+  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
+
+  const [visible, setVisible] = useState(false);
+
+  const onClose = () => {
+    setVisible(false);
+    const nextSelectedKeys = [...selectedKeys].filter((item) => item !== 'chat')
+    setSelectedKeys(nextSelectedKeys)
+  };
 
   const onFontSizeChange = (newFontSize) => {
     console.log(newFontSize);
@@ -61,12 +68,14 @@ function ArticleVideoChatRoom() {
     getItem("Video", "video", <DesktopOutlined />),
     getItem("Record", "record", <VideoCameraOutlined />),
     getItem("Sound", "sound", <SoundOutlined />),
+    getItem("Chat", "chat", <WechatOutlined />),
     getItem("User", "user", <UserOutlined />, [
       getItem("Jeong", "1"),
       getItem("Lee", "2"),
       getItem("Kim", "3"),
     ]),
   ];
+
   const handleClick = ({ item, key, keyPath, domEvent }) => {
     if (selectedKeys.includes(key)) {
       const nextSelectedKeys = [...selectedKeys].filter((item) => item !== key);
@@ -76,6 +85,12 @@ function ArticleVideoChatRoom() {
       setSelectedKeys(nextSelectedKeys);
     }
   };
+
+  useEffect(() => {
+    if(selectedKeys.includes('chat')){
+      setVisible(true);
+    }
+  }, [selectedKeys])
 
   return (
     <div className="ARdiv">
@@ -193,11 +208,13 @@ function ArticleVideoChatRoom() {
             </Row>
           </Content>
           <Footer>
-            <ReplyList articleId={articleId} />
+            <Drawer title="채팅" placement="right" onClose={onClose} visible={visible}>
+              <ChatList roomId={`1`} /> {/* TODO roomId 하드코딩 제거*/}
+            </Drawer>
           </Footer>
         </Layout>
       </Layout>
     </div>
   );
 }
-export default ArticleVideoChatRoom;
+export default VideoChatDetail;

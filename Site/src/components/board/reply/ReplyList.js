@@ -16,7 +16,7 @@ function ReplyList({articleId}) {
         setComments(data)
       })
       .catch((err) => {
-        message.error("회원가입 실패. 이미 가입된 이메일입니다."); // TODO 에러 메시지 변경하기
+        message.error(`${articleId}번 글의 댓글을 조회할 수 없습니다.`);
       })
   }
   useEffect(() => {

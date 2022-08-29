@@ -16,7 +16,7 @@ const h2 = {
 const h1 = {
   fontSize: "20px",
 };
-function CodeWithMe() {
+function VideoChatHome() {
   const navigate = useNavigate()
   var generateRandom = function (min, max) {
     var ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -29,7 +29,7 @@ function CodeWithMe() {
   };
 
   const handleOk = () => {
-    navigate("/video/inCodeWithMe")
+    navigate(`/video/room/${1}`) // TODO roomId 하드코딩 제거
   };
 
   const handleCancel = () => {
@@ -85,4 +85,4 @@ function CodeWithMe() {
   );
 }
 
-export default CodeWithMe;
+export default VideoChatHome;

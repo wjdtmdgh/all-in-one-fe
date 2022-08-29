@@ -29,27 +29,27 @@ const handleError = (err) => {
 class WebClient {
   get() {
     return axios.get(...arguments)
-      .catch(handleError)
+      // .catch(handleError)
   }
   
   post() {
     return axios.post(...arguments)
-      .catch(handleError)
+      // .catch(handleError)
   }
 
   put() {
     return axios.put(...arguments)
-      .catch(handleError)
+      // .catch(handleError)
   }
 
   patch() {
     return axios.patch(...arguments)
-      .catch(handleError)
+      // .catch(handleError)
   }
 
   delete() {
     return axios.delete(...arguments)
-      .catch(handleError)
+      // .catch(handleError)
   }
 }
 

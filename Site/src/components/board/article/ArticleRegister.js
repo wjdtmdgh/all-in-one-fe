@@ -153,7 +153,7 @@ A component by [Espen Hovlandsdal](https://espen.codes/)`);
         navigate("/board");
       })
       .catch((err) => {
-        message.error("회원가입 실패. 이미 가입된 이메일입니다."); // TODO 에러 메시지 변경하기
+        message.error("글 작성에 실패하였습니다.");
       });
   };
   return (

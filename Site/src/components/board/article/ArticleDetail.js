@@ -15,7 +15,7 @@ function ArticleDetail() {
   const [article, setArticle] = useState([]);
   const navigate = useNavigate();
   const onModifyButtonClick = () => {
-    navigate(`/board-in/${articleId}/modify`);
+    navigate(`/board/${articleId}/modify`);
   };
 
   useEffect(() => {

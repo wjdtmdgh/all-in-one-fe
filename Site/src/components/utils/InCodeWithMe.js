@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "../../styles/InCodeWithMe.css";
 import { Checkbox, Col, Row, Select } from "antd";
-import JoinMeeting from "./JoinMeeting";
+import Camera from "./Camera";
 import AceEditor from "react-ace";
 import "ace-builds";
 import "ace-builds/src-noconflict/mode-java";
@@ -11,6 +11,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 import { Option } from "antd/es/mentions";
 
+// Deprecated
 function InCodeWithMe() {
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState("javascript");
@@ -111,7 +112,7 @@ function InCodeWithMe() {
           />
         </Col>
       </Row>
-      <JoinMeeting />
+      <Camera />
     </div>
   );
 }

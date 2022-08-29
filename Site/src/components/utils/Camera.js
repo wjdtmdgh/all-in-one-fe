@@ -1,6 +1,6 @@
 import {Button} from "antd";
 
-export default function JoinMeeting(){
+export default function Camera(){
   const constraints = window.constraints = {
     audio: false,
     video: true

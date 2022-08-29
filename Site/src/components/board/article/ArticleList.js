@@ -4,14 +4,13 @@ import webClient from "../../../utils/WebClient";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
-import ArticleVideoChat from "./ArticleVideoChat";
-import JoinMeeting from "../../codewithme/JoinMeeting";
+import VideoChatList from "../../videochat/VideoChatList";
 function ArticleList() {
   const navigate = useNavigate();
   const [articles, setArticles] = useState([]);
   const [articlesPreview, setArticlesPreview] = useState(<></>);
   const onRegisterArticle = () => {
-    navigate("/register");
+    navigate("/board/new");
   };
   useEffect(() => {
     webClient
@@ -52,7 +51,7 @@ function ArticleList() {
         <Divider>ALL-IN-ONE</Divider>
       </div>
       <div>
-        <ArticleVideoChat />
+        <VideoChatList />
       </div>
     </div>
   );

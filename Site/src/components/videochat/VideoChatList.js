@@ -1,17 +1,16 @@
 import React from "react";
-import V from "../../../images/ServicePic/Servicepic1.webp";
+import V from "../../images/ServicePic/Servicepic1.webp";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   LoginOutlined,
   EllipsisOutlined,
   TeamOutlined,
-  FundViewOutlined,
   UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Card, Popover, Modal, Input } from "antd";
-import "../../../styles/Articlevideochat.css";
-function ArticleVideoChat() {
+import "../../styles/Articlevideochat.css";
+function VideoChatList() {
   const navigate = useNavigate();
   const { Meta } = Card;
   const content = "현재 화상회의 참가인원은 3명입니다";
@@ -21,7 +20,7 @@ function ArticleVideoChat() {
     setIsModalVisible(true);
   };
   const handleOk = () => {
-    navigate("/videochatroom");
+    navigate(`/video/room/${1}`); // TODO roomId 하드코딩 제거
     setIsModalVisible(false);
   };
   const handleCancel = () => {
@@ -63,4 +62,4 @@ function ArticleVideoChat() {
     </div>
   );
 }
-export default ArticleVideoChat;
+export default VideoChatList;
