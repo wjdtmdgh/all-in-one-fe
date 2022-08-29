@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../../styles/BulletinBoard.css";
 import ArticleContent from "./ArticleContent";
-
+import "../../../styles/ArticlePreview.css";
 function ArticlePreview({ article }) {
   const { Meta } = Card;
   const navigate = useNavigate();
@@ -29,7 +29,11 @@ function ArticlePreview({ article }) {
   useEffect(() => {
     console.log(article);
   }, []);
-  const content = <ArticleContent content={article.contents}/>
+  const content = (
+    <div className="contents">
+      <ArticleContent content={article.contents} />
+    </div>
+  );
   return (
     <div>
       <Card
@@ -43,9 +47,12 @@ function ArticlePreview({ article }) {
         onClick={() => onBoardRegister(article.id)}
       >
         <div>
-          <Popover content={content} title="Contents">
-            <Image width={280} height={200} src={language} />
-          </Popover>
+          <div>
+            {/* contents가 먹질않음 */}
+            <Popover content={content} title="Contents">
+              <Image width={280} height={200} src={language} />
+            </Popover>
+          </div>
         </div>
         <div>
           <EyeFilled className="eye" />

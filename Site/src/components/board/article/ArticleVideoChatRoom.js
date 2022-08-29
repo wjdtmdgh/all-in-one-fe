@@ -32,7 +32,8 @@ function ArticleVideoChatRoom() {
   const [fontSize, setFontSize] = useState(15);
   const [readOnly, setReadOnly] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState([]);
-  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
+  const [highlightActiveLineChange, setHighlightActiveLineChange] =
+    useState(true);
 
   const onFontSizeChange = (newFontSize) => {
     console.log(newFontSize);
@@ -55,7 +56,8 @@ function ArticleVideoChatRoom() {
   const onReadOnly = (e) => {
     setReadOnly(e.target.checked);
   };
-  const items = [ // TODO 채팅창 ON/OFF 추가
+  const items = [
+    // TODO 채팅창 ON/OFF 추가
     getItem("Video", "video", <DesktopOutlined />),
     getItem("Record", "record", <VideoCameraOutlined />),
     getItem("Sound", "sound", <SoundOutlined />),
@@ -66,20 +68,14 @@ function ArticleVideoChatRoom() {
     ]),
   ];
   const handleClick = ({ item, key, keyPath, domEvent }) => {
-    if(selectedKeys.includes(key)){
-      const nextSelectedKeys = [
-        ...selectedKeys
-      ].filter(item => item !== key)
-      setSelectedKeys(nextSelectedKeys)
+    if (selectedKeys.includes(key)) {
+      const nextSelectedKeys = [...selectedKeys].filter((item) => item !== key);
+      setSelectedKeys(nextSelectedKeys);
+    } else {
+      const nextSelectedKeys = [...selectedKeys, key];
+      setSelectedKeys(nextSelectedKeys);
     }
-    else {
-      const nextSelectedKeys = [
-        ...selectedKeys,
-        key
-      ]
-      setSelectedKeys(nextSelectedKeys)
-    }
-  }
+  };
 
   return (
     <div className="ARdiv">
@@ -101,7 +97,9 @@ function ArticleVideoChatRoom() {
         </Sider>
         <Layout className="site-layout">
           <Header></Header>
-          <Content> {/* TODO 캠화면 비율 조정 */}
+          <Content>
+            {" "}
+            {/* TODO 캠화면 비율 조정 */}
             <Row className="ARcol">
               <Col>
                 <div className="ARdd">
@@ -121,7 +119,7 @@ function ArticleVideoChatRoom() {
                   <UserOutlined className="ARicon" />
                 </div>
               </Col>
-              <Col span={3}>
+              <Col span={2}>
                 <div className="ARcode">
                   <Select
                     defaultValue={language}
@@ -144,50 +142,53 @@ function ArticleVideoChatRoom() {
                     <Option value="coffee">coffee</Option>
                     <Option value="css">css</Option>
                   </Select>
-                </div>
-                <div>
-                  <Checkbox onChange={onHighlightActiveLineChange}>
-                    LineHighlight
-                  </Checkbox>
-                </div>
-                <div>
-                  <Select
-                    onChange={onFontSizeChange}
-                    defaultValue={fontSize}
-                    style={{ width: 120 }}
-                  >
-                    <Option value={10}>10</Option>
-                    <Option value={15}>15</Option>
-                    <Option value={20}>20</Option>
-                    <Option value={25}>25</Option>
-                  </Select>
-                </div>
-                <div>
-                  <Checkbox onChange={onReadOnly}>ReadOnly</Checkbox>
+                  <div>
+                    <Checkbox onChange={onHighlightActiveLineChange}>
+                      LineHighlight
+                    </Checkbox>
+                  </div>
+                  <div>
+                    <Select
+                      onChange={onFontSizeChange}
+                      defaultValue={fontSize}
+                      style={{ width: 120 }}
+                    >
+                      <Option value={10}>10</Option>
+                      <Option value={15}>15</Option>
+                      <Option value={20}>20</Option>
+                      <Option value={25}>25</Option>
+                    </Select>
+                  </div>
+                  <div>
+                    <Checkbox onChange={onReadOnly}>ReadOnly</Checkbox>
+                  </div>
                 </div>
               </Col>
-              <Col span={5}>
-                {" "}{/* TODO 에디터 크기 키우기 */}
-                <AceEditor
-                  placeholder="Placeholder Text"
-                  mode={language}
-                  theme="Kuroir"
-                  name="blah2"
-                  onChange={onCodeChange}
-                  fontSize={fontSize}
-                  showPrintMargin={true}
-                  showGutter={true}
-                  highlightActiveLine={highlightActiveLineChange}
-                  readOnly={readOnly}
-                  value={code}
-                  setOptions={{
-                    enableBasicAutocompletion: true,
-                    enableLiveAutocompletion: true,
-                    enableSnippets: true,
-                    showLineNumbers: true,
-                    tabSize: 2,
-                  }}
-                />
+              <Col span={2}>
+                <div className="ARace">
+                  {" "}
+                  {/* TODO 에디터 크기 키우기 */}
+                  <AceEditor
+                    placeholder="Placeholder Text"
+                    mode={language}
+                    theme="Kuroir"
+                    name="blah2"
+                    onChange={onCodeChange}
+                    fontSize={fontSize}
+                    showPrintMargin={true}
+                    showGutter={true}
+                    highlightActiveLine={highlightActiveLineChange}
+                    readOnly={readOnly}
+                    value={code}
+                    setOptions={{
+                      enableBasicAutocompletion: true,
+                      enableLiveAutocompletion: true,
+                      enableSnippets: true,
+                      showLineNumbers: true,
+                      tabSize: 2,
+                    }}
+                  />
+                </div>
               </Col>
             </Row>
           </Content>
