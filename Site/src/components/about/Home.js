@@ -6,7 +6,7 @@ import R from "../../images/HomePic/Homepic6.jpeg";
 import { useState } from "react";
 import { Divider } from "antd";
 import { Footer } from "antd/es/layout/layout";
-import { Button, Popover } from "antd";
+import { Button, Popover, Row, Col } from "antd";
 import { DoubleRightOutlined } from "@ant-design/icons";
 import { CheckOutlined } from "@ant-design/icons";
 import { SolutionOutlined } from "@ant-design/icons";
@@ -89,11 +89,19 @@ function Home() {
           </button>
         </p>
       </div>
-      <div className="img">
-        <img src={Q} className="img1" />
-        <img src={W} className="img2" />
-        <img src={R} className="img3" />
-      </div>
+      <Row>
+        <div className="img">
+          <Col>
+            <img src={Q} className="img1" />
+            <Col>
+              <img src={R} className="img3" />
+            </Col>
+          </Col>
+          <Col>
+            <img src={W} className="img2" />
+          </Col>
+        </div>
+      </Row>
       <Divider id="div">ALL-IN-ONE</Divider>
       <div className="divS">
         <h1 className="serviceH">

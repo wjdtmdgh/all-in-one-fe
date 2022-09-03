@@ -1,11 +1,17 @@
 import {
-  DesktopOutlined,
+  EyeOutlined,
+  EyeInvisibleOutlined,
   SoundOutlined,
   VideoCameraOutlined,
-  UserOutlined, WechatOutlined,
+  UserOutlined,
+  WechatOutlined,
 } from "@ant-design/icons";
-import {Layout, Menu, Row, Col, Checkbox, Select, Drawer} from "antd";
-import React, {useEffect} from "react";
+import { HiOutlineVolumeOff } from "react-icons/hi";
+import { TiMediaRecord } from "react-icons/ti";
+import { TiMessages } from "react-icons/ti";
+import { HiOutlineVolumeUp } from "react-icons/hi";
+import { Layout, Menu, Row, Col, Checkbox, Select, Drawer, Modal } from "antd";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Option } from "antd/es/mentions";
 import "../../styles/Articlevideochatroom.css";
@@ -26,27 +32,42 @@ function getItem(label, key, icon, children) {
   };
 }
 function VideoChatDetail() {
-  const { articleId } = useParams();
   const [code, setCode] = useState("");
   const [language, setLanguage] = useState("javascript");
   const [fontSize, setFontSize] = useState(15);
   const [readOnly, setReadOnly] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState([]);
-  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
+  const [highlightActiveLineChange, setHighlightActiveLineChange] =
+    useState(true);
 
   const [visible, setVisible] = useState(false);
-
   const onClose = () => {
     setVisible(false);
-    const nextSelectedKeys = [...selectedKeys].filter((item) => item !== 'chat')
-    setSelectedKeys(nextSelectedKeys)
+    const nextSelectedKeys = [...selectedKeys].filter(
+      (item) => item !== "chat"
+    );
+    setSelectedKeys(nextSelectedKeys);
   };
-
+  const [videoicon, setVideoIcon] = useState(false);
+  const onDeskChange = () => {
+    if (videoicon === false) {
+      setVideoIcon(true);
+    } else {
+      setVideoIcon(false);
+    }
+  };
+  const [volumeicon, setvolumeIcon] = useState(false);
+  const onVolumeChange = () => {
+    if (volumeicon === false) {
+      setvolumeIcon(true);
+    } else {
+      setvolumeIcon(false);
+    }
+  };
   const onFontSizeChange = (newFontSize) => {
     console.log(newFontSize);
     setFontSize(newFontSize);
   };
-
   const onCodeChange = (newCode) => {
     setCode(newCode);
   };
@@ -63,12 +84,41 @@ function VideoChatDetail() {
   const onReadOnly = (e) => {
     setReadOnly(e.target.checked);
   };
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   const items = [
     // TODO 채팅창 ON/OFF 추가
-    getItem("Video", "video", <DesktopOutlined />),
-    getItem("Record", "record", <VideoCameraOutlined />),
-    getItem("Sound", "sound", <SoundOutlined />),
-    getItem("Chat", "chat", <WechatOutlined />),
+    getItem(
+      "Video",
+      "video",
+      <div onClick={onDeskChange}>
+        {videoicon ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+      </div>
+    ),
+    getItem(
+      "Record",
+      "record",
+      <TiMediaRecord style={{ color: "red" }} onClick={showModal} />
+    ),
+    getItem(
+      "Sound",
+      "sound",
+      <div onClick={onVolumeChange}>
+        {volumeicon ? <HiOutlineVolumeOff /> : <HiOutlineVolumeUp />}
+      </div>
+    ),
+    getItem("Chat", "chat", <TiMessages />),
     getItem("User", "user", <UserOutlined />, [
       getItem("Jeong", "1"),
       getItem("Lee", "2"),
@@ -87,13 +137,21 @@ function VideoChatDetail() {
   };
 
   useEffect(() => {
-    if(selectedKeys.includes('chat')){
+    if (selectedKeys.includes("chat")) {
       setVisible(true);
     }
-  }, [selectedKeys])
-
+  }, [selectedKeys]);
+  const { roomId } = useParams();
   return (
     <div className="ARdiv">
+      <Modal
+        title="Record"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>화면 녹화를 시작합니다</p>
+      </Modal>
       <Layout
         style={{
           minHeight: "100vh",
@@ -208,8 +266,13 @@ function VideoChatDetail() {
             </Row>
           </Content>
           <Footer>
-            <Drawer title="채팅" placement="right" onClose={onClose} visible={visible}>
-              <ChatList roomId={`1`} /> {/* TODO roomId 하드코딩 제거*/}
+            <Drawer
+              title="채팅"
+              placement="right"
+              onClose={onClose}
+              visible={visible}
+            >
+              <ChatList roomId={roomId} /> {/* TODO roomId 하드코딩 제거*/}
             </Drawer>
           </Footer>
         </Layout>

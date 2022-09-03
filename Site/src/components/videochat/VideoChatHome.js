@@ -7,7 +7,7 @@ import { Button } from "antd";
 import { Divider } from "antd";
 import { Footer } from "antd/es/layout/layout";
 import { Modal } from "antd";
-import {useNavigate} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const h2 = {
   color: "darkblue",
@@ -17,7 +17,8 @@ const h1 = {
   fontSize: "20px",
 };
 function VideoChatHome() {
-  const navigate = useNavigate()
+  const { roomId } = useParams();
+  const navigate = useNavigate();
   var generateRandom = function (min, max) {
     var ranNum = Math.floor(Math.random() * (max - min + 1)) + min;
     return ranNum;
@@ -29,7 +30,8 @@ function VideoChatHome() {
   };
 
   const handleOk = () => {
-    navigate(`/video/room/${1}`) // TODO roomId 하드코딩 제거
+    console.log(roomId);
+    navigate(`/video/room/${roomId}`); // TODO roomId 하드코딩 제거
   };
 
   const handleCancel = () => {
