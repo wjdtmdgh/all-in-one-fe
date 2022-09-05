@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Input, message, Row, Select } from "antd";
 import "../../../styles/BoardRegister.css";
-import { DingtalkSquareFilled } from "@ant-design/icons";
 import webClient from "../../../utils/WebClient";
 import { useNavigate } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
 import TextArea from "antd/es/input/TextArea";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import ArticleContent from "./ArticleContent";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+const { Option } = Select;
+
 const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 16 },
 };
+
 const validateMessages = {
   required: "${label} is required!",
   types: {
@@ -28,53 +25,58 @@ const validateMessages = {
     range: "${label} must be between ${min} and ${max}",
   },
 };
+
 function ArticleModify() {
-  const navigate = useNavigate();
-  const [content, setContent] = useState("");
-  const [title, setTitle] = useState("");
-  const [language, setLanguage] = useState("");
+  const navigate = useNavigate()
+  const [title, setTitle] = useState("")
+  const [content, setContent] = useState("")
+  const [language, setLanguage] = useState("")
   const { articleId } = useParams();
   useEffect(() => {
+    console.log("language:", language)
     webClient
       .get(`http://localhost:8080/articles/${articleId}`)
       .then((res) => res.data)
       .then((data) => {
-        setTitle(data.title);
-        setContent(data.contents);
-        setLanguage(data.language);
-        console.log(data.title);
-        console.log(data.contents);
-        console.log(data.language);
+        setTitle(data.title)
+        setContent(data.contents)
+        setLanguage(data.language)
       })
       .catch((err) => {
-        console.log(err);
-      });
+        console.log(err)
+      })
   }, []);
   useEffect(() => {
-    console.log("title이 변할떄마다", title);
-  }, [title]);
+    console.log("language:", language)
+  }, [language])
   const onFinish = (values) => {
-    console.log("values: ", values);
+    console.log("values: ", values)
     const data = {
       title: values.title,
       contents: values.contents,
       writerId: 1, // TODO: get user ID from JWT
       language: values.language,
-    };
-    console.log("data: ", data);
+    }
+    console.log("data: ", data)
     webClient
-      .patch(`http://localhost:8080/articles`, data)
+      .patch(`http://localhost:8080/articles/${articleId}`, data)
       .then((res) => res.data)
       .then((data) => {
         navigate("/board");
       })
       .catch((err) => {
-        message.error("회원가입 실패. 이미 가입된 이메일입니다.");
+        message.error("글 수정 실패");
       });
   };
+
+  const handleChangeTitle = (e) => {
+    console.log(e)
+    setTitle(e.target.value)
+  }
+
   return (
     <div className="BRdiv">
-      <Form
+      {(title && language) && <Form
         {...layout}
         name="nest-messages"
         onFinish={onFinish}
@@ -84,20 +86,17 @@ function ArticleModify() {
         <Form.Item
           name="title"
           label="제목"
-          rules={[{ required: true, message: "제목을 입력해 주세요" }]}
+          rules={[{required: true, message: "제목을 입력해 주세요"}]}
         >
           <Input
-            value={title}
-            onChange={(e) => {
-              console.log(e.target.value);
-              setTitle(e.target.value);
-            }}
+            defaultValue={title}
+            onChange={handleChangeTitle}
           />
         </Form.Item>
         <Form.Item
           name="contents"
           label="내용"
-          rules={[{ required: true, message: "글 내용을 입력해 주세요" }]}
+          rules={[{required: true, message: "글 내용을 입력해 주세요"}]}
         >
           <Row>
             <Col span={11} className="BRCol">
@@ -112,33 +111,32 @@ function ArticleModify() {
               />
             </Col>
             <Col span={11}>
-              <ArticleContent content={content} />
+              <ArticleContent content={content}/>
             </Col>
           </Row>
         </Form.Item>
         <Form.Item
           name="language"
           label="Language"
-          rules={[{ required: true, message: "제목을 입력해 주세요" }]}
+          rules={[{required: true, message: "제목을 입력해 주세요"}]}
         >
           <Select
             defaultValue={language}
-            onChange={(e) => setLanguage(e.target.value)}
+            onChange={setLanguage}
           >
-            <Select.Option value="C++">C++</Select.Option>
-            <Select.Option value="Python">Python</Select.Option>
-            <Select.Option value="Java">Java</Select.Option>
+            <Option value="C++">C++</Option>
+            <Option value="Python">Python</Option>
+            <Option value="Java">Java</Option>
           </Select>
         </Form.Item>
-        <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+        <Form.Item wrapperCol={{...layout.wrapperCol, offset: 8}}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
+      }
     </div>
-    //{" "}
-    // </div>
   );
 }
 export default ArticleModify;

@@ -1,10 +1,7 @@
 import {
   EyeOutlined,
   EyeInvisibleOutlined,
-  SoundOutlined,
-  VideoCameraOutlined,
   UserOutlined,
-  WechatOutlined,
 } from "@ant-design/icons";
 import { HiOutlineVolumeOff } from "react-icons/hi";
 import { TiMediaRecord } from "react-icons/ti";
