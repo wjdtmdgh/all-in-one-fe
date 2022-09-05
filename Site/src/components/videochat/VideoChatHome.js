@@ -31,7 +31,7 @@ function VideoChatHome() {
 
   const handleOk = () => {
     console.log(roomId);
-    navigate(`/video/room/${roomId}`); // TODO roomId 하드코딩 제거
+    navigate(`/video/room/${roomId}`); // TODO roomId 하드코딩 제거(서버 작업 이후 진행)
   };
 
   const handleCancel = () => {

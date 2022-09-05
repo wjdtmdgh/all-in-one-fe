@@ -95,7 +95,6 @@ function VideoChatDetail() {
     setIsModalVisible(false);
   };
   const items = [
-    // TODO 채팅창 ON/OFF 추가
     getItem(
       "Video",
       "video",
@@ -168,21 +167,17 @@ function VideoChatDetail() {
         <Layout className="site-layout">
           <Header></Header>
           <Content>
-            {" "}
-            {/* TODO 캠화면 비율 조정 */}
             <Row className="ARcol">
               <Col>
                 <div className="ARdd">
                   <UserOutlined className="ARicon" />
                 </div>
                 <div className="ARdd">
-                  {" "}
                   <UserOutlined className="ARicon" />
                 </div>
               </Col>
               <Col>
                 <div className="ARdd">
-                  {" "}
                   <UserOutlined className="ARicon" />
                 </div>
                 <div className="ARdd">
@@ -236,8 +231,6 @@ function VideoChatDetail() {
               </Col>
               <Col span={2}>
                 <div className="ARace">
-                  {" "}
-                  {/* TODO 에디터 크기 키우기 */}
                   <AceEditor
                     placeholder="Placeholder Text"
                     mode={language}
@@ -250,6 +243,7 @@ function VideoChatDetail() {
                     highlightActiveLine={highlightActiveLineChange}
                     readOnly={readOnly}
                     value={code}
+                    width={1000/* TODO 에디터 크기 화면에 맞춰서 하드코딩 제거 */}
                     setOptions={{
                       enableBasicAutocompletion: true,
                       enableLiveAutocompletion: true,
@@ -269,7 +263,7 @@ function VideoChatDetail() {
               onClose={onClose}
               visible={visible}
             >
-              <ChatList roomId={roomId} /> {/* TODO roomId 하드코딩 제거*/}
+              <ChatList roomId={roomId} />
             </Drawer>
           </Footer>
         </Layout>
