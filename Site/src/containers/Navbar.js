@@ -1,7 +1,7 @@
 import "../styles/App.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
-import { getToken } from "../utils/TokenUtils";
+import { getToken } from "../utils/LocalStorageUtils";
 const { Header, Content, Footer } = Layout;
 
 const Navbar = () => {

@@ -7,6 +7,7 @@ import { DingtalkSquareFilled } from "@ant-design/icons";
 import "../../styles/SignIn.css";
 import webClient from "../../utils/WebClient";
 import { useNavigate } from "react-router-dom";
+import {setEmail, setToken, setUserId, setUsername} from "../../utils/LocalStorageUtils";
 function SignIn() {
   const navigate = useNavigate();
   const onFinish = (values) => {
@@ -21,7 +22,10 @@ function SignIn() {
         return res.data;
       })
       .then((data) => {
-        localStorage.setItem("token", data.token);
+        setUserId(data.id)
+        setUsername(data.name)
+        setEmail(data.email)
+        setToken(data.token)
         message.success("로그인 성공");
         navigate("/");
       })

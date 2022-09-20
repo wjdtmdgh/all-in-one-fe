@@ -1,6 +1,7 @@
 import {Avatar, Button, Comment, Form, Input, message} from "antd";
 import React, {useState} from "react";
 import webClient from "../../../utils/WebClient";
+import {getUserId} from "../../../utils/LocalStorageUtils";
 
 function ReplyEditor({articleId, comments, getReplies}) {
   const [submitting, setSubmitting] = useState(false);
@@ -17,7 +18,7 @@ function ReplyEditor({articleId, comments, getReplies}) {
     const data = {
       articleId: articleId,
       contents: value,
-      writerId: 1, // TODO: get user ID from JWT
+      writerId: getUserId()
     }
     webClient
       .post(`http://localhost:8080/replies`, data)

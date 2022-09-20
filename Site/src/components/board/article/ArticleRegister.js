@@ -12,6 +12,7 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import ArticleContent from "./ArticleContent";
+import {getUserId} from "../../../utils/LocalStorageUtils";
 
 const layout = {
   labelCol: { span: 8 },
@@ -142,7 +143,7 @@ A component by [Espen Hovlandsdal](https://espen.codes/)`);
     const data = {
       title: values.title,
       contents: values.contents,
-      writerId: 1, // TODO: get user ID from JWT
+      writerId: getUserId(),
       language: values.language,
     };
     console.log("data: ", data);

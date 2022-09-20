@@ -7,6 +7,7 @@ import TextArea from "antd/es/input/TextArea";
 import ArticleContent from "./ArticleContent";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import {getUserId} from "../../../utils/LocalStorageUtils";
 
 const { Option } = Select;
 
@@ -54,7 +55,7 @@ function ArticleModify() {
     const data = {
       title: values.title,
       contents: values.contents,
-      writerId: 1, // TODO: get user ID from JWT
+      writerId: getUserId(),
       language: values.language,
     }
     console.log("data: ", data)

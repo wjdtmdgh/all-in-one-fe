@@ -24,6 +24,7 @@ import F from "../../images/ServicePic/Serviceicon3.png";
 import G from "../../images/ServicePic/Serviceicon4.png";
 import { Carousel } from "antd";
 import { useNavigate } from "react-router-dom";
+import {getToken} from "../../utils/LocalStorageUtils";
 function Home() {
   const navigate = useNavigate();
   const onRegisterButtonClick = () => {
@@ -52,6 +53,7 @@ function Home() {
     code: <Code />,
     record: <Record />,
   };
+  const token = getToken()
   return (
     <div className="q">
       <div className="Home">
@@ -66,14 +68,16 @@ function Home() {
           <br />
           <b>올인원</b>과 함께라면 신속하고 효율적인 공부를 할 수 있습니다.
         </p>
-        <Button
-          type="primary"
-          htmlType="submit"
-          onClick={onRegisterButtonClick}
-          className="member"
-        >
-          회원가입
-        </Button>
+        { !token &&
+          <Button
+            type="primary"
+            htmlType="submit"
+            onClick={onRegisterButtonClick}
+            className="member"
+          >
+            회원가입
+          </Button>
+        }
         <br />
         <br />
         <br />
@@ -82,12 +86,14 @@ function Home() {
         <br />
         <br />
         <br />
-        <p className="p2">
-          이미 가입하셨나요?{" "}
-          <button className="login" onClick={onLoginButtonClick}>
-            로그인
-          </button>
-        </p>
+        { !token &&
+          <p className="p2">
+            이미 가입하셨나요?{" "}
+            <button className="login" onClick={onLoginButtonClick}>
+              로그인
+            </button>
+          </p>
+        }
       </div>
       <Row>
         <div className="img">
