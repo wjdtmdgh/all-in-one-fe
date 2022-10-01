@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import {message, Typography} from 'antd'
+import {getToken, hasToken} from "./LocalStorageUtils";
 
 const createErrorMessage = (err) => {
   console.log(err.response.status)
@@ -28,26 +29,36 @@ const handleError = (err) => {
 
 class WebClient {
   get() {
+    if(hasToken())
+      axios.defaults.headers.common['Authorization'] = `Bearer ${getToken()}`
     return axios.get(...arguments)
       // .catch(handleError)
   }
   
   post() {
+    if(hasToken())
+      axios.defaults.headers.common['Authorization'] = `Bearer ${getToken()}`
     return axios.post(...arguments)
       // .catch(handleError)
   }
 
   put() {
+    if(hasToken())
+      axios.defaults.headers.common['Authorization'] = `Bearer ${getToken()}`
     return axios.put(...arguments)
       // .catch(handleError)
   }
 
   patch() {
+    if(hasToken())
+      axios.defaults.headers.common['Authorization'] = `Bearer ${getToken()}`
     return axios.patch(...arguments)
       // .catch(handleError)
   }
 
   delete() {
+    if(hasToken())
+      axios.defaults.headers.common['Authorization'] = `Bearer ${getToken()}`
     return axios.delete(...arguments)
       // .catch(handleError)
   }
