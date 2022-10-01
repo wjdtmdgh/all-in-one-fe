@@ -22,9 +22,8 @@ function SignUp() {
         .post(`http://localhost:8080/members`, data)
         .then((res) => res.data)
         .then((data) => {
-          localStorage.setItem("token", data.token);
           message.success("회원가입 성공");
-          navigate("/");
+          navigate("/sign-in");
         })
         .catch((err) => {
           message.error("회원가입 실패. 이미 가입된 이메일입니다.");
