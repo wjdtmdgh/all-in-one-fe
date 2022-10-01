@@ -5,13 +5,13 @@ import SignIn from "../components/auth/SignIn";
 import Home from "../components/about/Home";
 import { Layout } from "antd";
 import VideoChatHome from "../components/videochat/VideoChatHome";
-import InCodeWithMe from "../components/utils/InCodeWithMe";
 import SignUp from "../components/auth/SignUp";
 import ArticleList from "../components/board/article/ArticleList";
 import ArticleDetail from "../components/board/article/ArticleDetail";
 import ArticleRegister from "../components/board/article/ArticleRegister";
 import ArticleModify from "../components/board/article/ArticleModify";
 import VideoChatDetail from "../components/videochat/VideoChatDetail";
+import SignOut from "../components/auth/SignOut";
 function Allcontrol() {
   return (
     <Layout>
@@ -19,6 +19,7 @@ function Allcontrol() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-out" element={<SignOut />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/board" element={<ArticleList />} />
         <Route path="/board/new" element={<ArticleRegister />} />

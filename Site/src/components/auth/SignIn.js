@@ -27,7 +27,8 @@ function SignIn() {
         setEmail(data.email)
         setToken(data.token)
         message.success("로그인 성공");
-        navigate("/");
+        // navigate("/");
+        window.location.replace("/")
       })
       .catch((err) => {
         message.error(`로그인 실패. ${err.response.data}`);

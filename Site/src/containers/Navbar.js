@@ -2,9 +2,10 @@ import "../styles/App.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
 import { getToken } from "../utils/LocalStorageUtils";
-const { Header, Content, Footer } = Layout;
+const { Header } = Layout;
 
 const Navbar = () => {
+
   return (
     <div>
       <Layout className="layout">
@@ -22,7 +23,7 @@ const Navbar = () => {
             </Menu.Item>
             {getToken() ? (
               <Menu.Item>
-                <Link to="/sign-in">Logout</Link>
+                <Link to="/sign-out">Logout</Link>
               </Menu.Item>
             ) : (
               <Menu.Item>
