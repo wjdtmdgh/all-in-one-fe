@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import ReplyList from "../reply/ReplyList";
 import ArticleContent from "./ArticleContent";
 import { useNavigate } from "react-router-dom";
+import {getProfileImage} from "../../../utils/Gravatar";
 function ArticleDetail() {
   const { articleId } = useParams();
   const [article, setArticle] = useState([]);
@@ -25,7 +26,7 @@ function ArticleDetail() {
       .then((data) => setArticle(data))
       .catch((err) => {
         console.log(err);
-      });
+      })
   }, []);
 
   const { Meta } = Card;
@@ -37,7 +38,7 @@ function ArticleDetail() {
           <Card
             title={
               <Meta
-                avatar={<Avatar icon={<UserOutlined />} />}
+                avatar={<Avatar src={getProfileImage(article.writerEmail)}/>}
                 title={article.writerName}
                 description={article.title + " - " + article.language}
               />

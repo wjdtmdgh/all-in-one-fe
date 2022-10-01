@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Card, Popover, Modal, Input } from "antd";
 import "../../styles/Articlevideochat.css";
+import {getProfileImage} from "../../utils/Gravatar";
 function VideoChatList() {
   const navigate = useNavigate();
   const { Meta } = Card;
@@ -44,7 +45,7 @@ function VideoChatList() {
           ]}
         >
           <Meta
-            avatar={<Avatar icon={<UserOutlined />} />}
+            avatar={<Avatar src={getProfileImage("")}/>}
             title="정승호"
             description="Java로 푸는 연구소"
           />

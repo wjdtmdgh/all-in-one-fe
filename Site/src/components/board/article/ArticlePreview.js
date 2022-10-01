@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import "../../../styles/BulletinBoard.css";
 import ArticleContent from "./ArticleContent";
 import "../../../styles/ArticlePreview.css";
+import {getProfileImage} from "../../../utils/Gravatar";
 function ArticlePreview({ article }) {
   const { Meta } = Card;
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function ArticlePreview({ article }) {
       <Card
         title={
           <Meta
-            avatar={<Avatar icon={<UserOutlined />} />}
+            avatar={<Avatar src={getProfileImage(article.writerEmail)}/>}
             title={article.writerName}
             description={article.title + " - " + article.language}
           />

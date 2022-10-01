@@ -2,6 +2,8 @@ import {Avatar, Comment, List, message} from "antd";
 import React, {useEffect, useState} from "react";
 import ReplyEditor from "./ReplyEditor";
 import webClient from "../../../utils/WebClient";
+import md5 from "md5"
+import {getProfileImage} from "../../../utils/Gravatar";
 
 function ReplyList({articleId}) {
   const [comments, setComments] = useState([]);
@@ -33,7 +35,7 @@ function ReplyList({articleId}) {
           <Comment
             author={item.writerName}
             content={item.contents}
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
+            avatar={<Avatar src={getProfileImage(item.writerEmail)} alt="Han Solo" />}
             datetime={item.createdDate}
           />}
       />}

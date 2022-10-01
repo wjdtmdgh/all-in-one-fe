@@ -34,7 +34,6 @@ function ArticleModify() {
   const [language, setLanguage] = useState("")
   const { articleId } = useParams();
   useEffect(() => {
-    console.log("language:", language)
     webClient
       .get(`http://localhost:8080/articles/${articleId}`)
       .then((res) => res.data)
@@ -47,18 +46,14 @@ function ArticleModify() {
         console.log(err)
       })
   }, []);
-  useEffect(() => {
-    console.log("language:", language)
-  }, [language])
+
   const onFinish = (values) => {
-    console.log("values: ", values)
     const data = {
       title: values.title,
       contents: values.contents,
       writerId: getUserId(),
       language: values.language,
     }
-    console.log("data: ", data)
     webClient
       .patch(`http://localhost:8080/articles/${articleId}`, data)
       .then((res) => res.data)

@@ -1,7 +1,8 @@
 import {Avatar, Button, Comment, Form, Input, message} from "antd";
 import React, {useState} from "react";
 import webClient from "../../../utils/WebClient";
-import {getUserId} from "../../../utils/LocalStorageUtils";
+import {getEmail, getUserId} from "../../../utils/LocalStorageUtils";
+import {getProfileImage} from "../../../utils/Gravatar";
 
 function ReplyEditor({articleId, comments, getReplies}) {
   const [submitting, setSubmitting] = useState(false);
@@ -39,7 +40,7 @@ function ReplyEditor({articleId, comments, getReplies}) {
   return <Comment
     avatar={
       <Avatar
-        src="https://joeschmoe.io/api/v1/random"
+        src={getProfileImage(getEmail())}
         alt="Jeong Seung Ho"
       />
     }
