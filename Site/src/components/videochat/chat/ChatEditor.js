@@ -1,28 +1,19 @@
 import {Button, Col, Form, Input, Row, Space} from "antd";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import moment from 'moment';
 import TextArea from "antd/es/input/TextArea";
 import {SendOutlined} from "@ant-design/icons";
+import {uuidv4} from "../../../utils/UuidGenerator";
 
-export default function ChatEditor({chatList, setChatList}){
-  const [submitting, setSubmitting] = useState(false);
+export default function ChatEditor({ws}){
   const [value, setValue] = useState('');
+
+  // TODO websocket을 통해 메시지를 전송
 
   const handleSubmit = () => {
     if (!value) return;
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setValue('');
-      const nextChatList = [
-        ...chatList, {
-        author: 'Han Solo',
-        avatar: 'https://joeschmoe.io/api/v1/random',
-        content: value, // <p>{value}</p>,
-        datetime: moment().fromNow()
-      }]
-      setChatList(nextChatList);
-    }, 1000);
+    ws.send(`${uuidv4()}|${value}`);
+    setValue('')
   };
 
   const handleChange = (e) => {
@@ -38,7 +29,6 @@ export default function ChatEditor({chatList, setChatList}){
           value={value}
           bordered={false}/>
         <Button
-          loading={submitting}
           onClick={handleSubmit}
           type="primary">
           <SendOutlined />

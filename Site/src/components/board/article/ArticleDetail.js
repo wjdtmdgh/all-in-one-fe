@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../../../styles/BulletinBoardIn.css";
 import { Rate } from "antd";
 import { Card, Col, Row, Avatar, Button } from "antd";
-import { UserOutlined } from "@ant-design/icons";
 import { HeartFilled } from "@ant-design/icons";
 import { Divider } from "antd";
 import webClient from "../../../utils/WebClient";

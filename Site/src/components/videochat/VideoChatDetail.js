@@ -34,10 +34,11 @@ function VideoChatDetail() {
   const [fontSize, setFontSize] = useState(15);
   const [readOnly, setReadOnly] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState([]);
-  const [highlightActiveLineChange, setHighlightActiveLineChange] =
-    useState(true);
-
+  const [highlightActiveLineChange, setHighlightActiveLineChange] = useState(true);
+  const [webSocket, setWebSocket] = useState(null);
   const [visible, setVisible] = useState(false);
+  const [msgList, setMsgList] = useState([]);
+
   const onClose = () => {
     setVisible(false);
     const nextSelectedKeys = [...selectedKeys].filter(
@@ -137,6 +138,24 @@ function VideoChatDetail() {
       setVisible(true);
     }
   }, [selectedKeys]);
+
+  useEffect(() => {
+    const ws = new WebSocket("ws://localhost:8080/v1/chat")
+    ws.addEventListener('message', function(event) {
+      console.log("event", event)
+      const [uuid, data] = event.data.split("|")
+      console.log("uuid", uuid)
+      console.log("msgList", msgList)
+      // TODO onMessage 이벤트리스너 여러번 호출되는 이슈(Known)
+      if(msgList.find(el => el.id === uuid) === undefined) {
+        setMsgList((prevState) => {
+          return [...prevState, {id: uuid, msg: data}]
+        })
+      }
+    });
+    setWebSocket(ws)
+  }, [])
+
   const { roomId } = useParams();
   return (
     <div className="ARdiv">
@@ -263,7 +282,7 @@ function VideoChatDetail() {
               onClose={onClose}
               visible={visible}
             >
-              <ChatList roomId={roomId} />
+              <ChatList msgList={msgList} roomId={roomId} ws={webSocket}/>
             </Drawer>
           </Footer>
         </Layout>
